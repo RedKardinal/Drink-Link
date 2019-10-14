@@ -12,9 +12,10 @@ import AboutPage from '../AboutPage/AboutPage';
 import Footer from '../Footer/Footer';
 import InfoPage from '../InfoPage/InfoPage';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-import Map from '../Map/Map'
+// import Map from '../Map/Map'
 import Nav from '../Nav/Nav';
 import UserPage from '../UserPage/UserPage';
+import AddForm from '../AddForm/AddForm';
 // ---- CSS ---- //
 import './App.css';
 
@@ -54,8 +55,16 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/AddForm"
+              component={AddForm}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
+            <Route exact path='/AddForm' component={AddForm}></Route>
           </Switch>
           <Footer />
         </div>
