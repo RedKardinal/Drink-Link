@@ -12,7 +12,8 @@ class AddForm extends Component {
         item: {
             name: '',
             time: '',
-            web: ''
+            web: '',
+            detail: '',
         }
     } // end state
 
@@ -34,8 +35,13 @@ class AddForm extends Component {
                 <div>
                     <h1>Add a Location</h1>
                     <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name"></input>
+                    <br/>
                     <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times"></input>
+                    <br/>
                     <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website"></input>
+                    <br/>
+                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" rows="4" cols="70"></textarea>
+                    <br/>
                     <button onClick={this.handleClick}>Add Location!</button>
                 </div>
             </Router>

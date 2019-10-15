@@ -6,7 +6,7 @@ function* locationSaga() {
     yield takeLatest('DELETE_LOCATION', deleteLocation);
 }
 
-// GET locations from database
+// GET locations for locationList, locationEdit, & locationApprove
 function* fetchLocation() {
     try {
         const response = yield axios.get('/api/location');
@@ -15,7 +15,7 @@ function* fetchLocation() {
     } catch (error) {
         console.log('error in FETCH LOCATIONS saga', error);
     }
-}
+} // end fetchLocation
 
 // function* addItem (action) {
 //     try {
@@ -26,6 +26,7 @@ function* fetchLocation() {
 //     }
 // }
 
+// Delete location called from LocationEdit page
 function* deleteLocation (action) {
     try {
         yield axios.delete('/api/location/' + action.payload );
@@ -34,6 +35,6 @@ function* deleteLocation (action) {
     } catch (error) {
         console.log('error in DELETE saga', error);
     }
-}
+} // end deleteLocation
 
 export default locationSaga;
