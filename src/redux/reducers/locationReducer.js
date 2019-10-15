@@ -1,12 +1,12 @@
-const shelfReducer = (state = [], action) => {
-    console.log(state);
+const locationReducer = (state = [], action) => {
     console.log(action.payload);
+    console.log(state);
     switch (action.type) {
-      case 'SET_SHELF':
+      case 'SET_LOCATION':
         return action.payload;
       default:
         return state;
     }
   };
   
-  export default shelfReducer;
+  export default locationReducer;
