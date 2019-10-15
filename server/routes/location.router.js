@@ -43,24 +43,21 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // // end POST
 
 
-// /**
-//  * Delete an item if it's something the logged in user added
-//  */
-// router.delete('/:id', rejectUnauthenticated, (req, res) => {
-//     console.log('req.user:', req.user);
-//     console.log('is user authenticated?', req.isAuthenticated());
-//     console.log('in /delete route');
-//     let queryText = `DELETE FROM "item" WHERE "id" = $1 AND "user_id" = $2;`;
-//     pool.query(queryText, [req.params.id, req.user.id])
-//     .then( (results) => {
-//         console.log('delete successful', results);
-//         res.sendStatus(200);
-//     }).catch(error => {
-//         console.log('Problem with Delete request', error);
-//         res.sendStatus(500);
-//     })
-
-// });
+// Delete an item if it's something the logged in user added
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('req.user:', req.user);
+    console.log('is user authenticated?', req.isAuthenticated());
+    console.log('in /delete route');
+    let queryText = `DELETE FROM "location" WHERE "id" = $1 AND "user_id" = $2;`;
+    pool.query(queryText, [req.params.id, req.user.id])
+    .then( (results) => {
+        console.log('delete successful', results);
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('Problem with Delete request', error);
+        res.sendStatus(500);
+    })
+});
 
 
 /**

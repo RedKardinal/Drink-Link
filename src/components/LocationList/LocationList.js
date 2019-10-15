@@ -17,12 +17,15 @@ class LocationList extends Component {
 
     render () {
         return (
-            <div>
+            <>
             <h2>Location List</h2>
+            <table>
             <tbody>
+                <tr>
                 <th>Name</th>
                 <th>Happy Hour Times</th>
                 <th>Website</th>
+                </tr>
                 {this.props.reduxStore.locationReducer.map((bar) => {
                     return (
                     <tr key={bar.id}>
@@ -33,7 +36,8 @@ class LocationList extends Component {
                     )
                 })}
             </tbody>
-            </div>
+            </table>
+            </>
         )
     }
 }

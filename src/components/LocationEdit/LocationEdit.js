@@ -11,8 +11,9 @@ class LocationEdit extends Component {
         this.props.dispatch({ type: 'FETCH_LOCATION' })
     }
 
-    handleDelete = () => {
+    handleDelete = (id) => {
         console.log('Delete clicked!');
+        this.props.dispatch({ type: 'DELETE_LOCATION', payload: id })
     }
 
     handleApprove = () => {
@@ -45,7 +46,7 @@ class LocationEdit extends Component {
                         <td>{bar.lat}</td>
                         <td>{bar.lng}</td>
                         <td><button onClick={this.handleApprove}>{bar.approve}Approve</button></td>
-                        <td><button onClick={this.handleDelete}>Delete</button></td>
+                        <td><button onClick={()=>this.handleDelete(bar.id)}>Delete</button></td>
                     </tr>
                     )
                 })}

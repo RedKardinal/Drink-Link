@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* locationSaga() {
     yield takeLatest('FETCH_LOCATION', fetchLocation);
-
+    yield takeLatest('DELETE_LOCATION', deleteLocation);
 }
 
 // GET locations from database
@@ -26,16 +26,14 @@ function* fetchLocation() {
 //     }
 // }
 
-// function* deleteItems(action) {
-//     try {
-//         yield axios.delete('/api/shelf/' +action.payload );
-    
-//         yield console.log(action.payload);
-//         yield getItems();
-
-//     } catch (error) {
-//         console.log('error in GET', error);
-//     }
-// }
+function* deleteLocation (action) {
+    try {
+        yield axios.delete('/api/location/' + action.payload );
+        yield console.log(action.payload);
+        yield fetchLocation();
+    } catch (error) {
+        console.log('error in DELETE saga', error);
+    }
+}
 
 export default locationSaga;
