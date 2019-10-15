@@ -6,7 +6,7 @@ class LocationList extends Component {
     render () {
         return (
             <div>
-
+                <p>Location List</p>
             </div>
         )
     }

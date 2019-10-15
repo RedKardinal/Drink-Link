@@ -16,6 +16,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import Nav from '../Nav/Nav';
 import UserPage from '../UserPage/UserPage';
 import AddForm from '../AddForm/AddForm';
+import LocationList from '../LocationList/LocationList';
+import LocationApprove from '../LocationApprove/LocationApprove';
+import LocationEdit from '../LocationEdit/LocationEdit';
+import UserEdit from '../UserEdit/UserEdit';
+
 // ---- CSS ---- //
 import './App.css';
 
@@ -61,6 +66,34 @@ class App extends Component {
               exact
               path="/AddForm"
               component={AddForm}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/LocationList"
+              component={LocationList}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/LocationApprove"
+              component={LocationApprove}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/LocationEdit"
+              component={LocationEdit}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/UserEdit"
+              component={UserEdit}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

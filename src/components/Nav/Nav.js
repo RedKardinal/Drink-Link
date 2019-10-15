@@ -26,6 +26,22 @@ const Nav = (props) => (
           <Link className="nav-link" to="/AddForm">
             Add Form
           </Link>
+
+          <Link className="nav-link" to="/LocationList">
+            The List
+          </Link>
+
+          <Link className="nav-link" to="/LocationApprove">
+            Location Approval Page
+          </Link>
+
+          <Link className="nav-link" to="/LocationEdit">
+            Edit List
+          </Link>
+
+          <Link className="nav-link" to="/UserEdit">
+            Edit Users
+          </Link>
           
           <LogOutButton className="nav-link"/>
         </>

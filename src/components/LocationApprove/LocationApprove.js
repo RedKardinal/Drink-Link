@@ -6,7 +6,7 @@ class LocationApprove extends Component {
     render () {
         return (
             <div>
-
+                Location Approve Page
             </div>
         )
     }

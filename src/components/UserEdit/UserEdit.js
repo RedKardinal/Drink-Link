@@ -6,7 +6,7 @@ class UserEdit extends Component {
     render () {
         return (
             <div>
-
+                UserEdit Page
             </div>
         )
     }

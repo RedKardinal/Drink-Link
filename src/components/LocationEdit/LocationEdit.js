@@ -6,7 +6,7 @@ class LocationEdit extends Component {
     render () {
         return (
             <div>
-
+                Location Edit Page
             </div>
         )
     }
