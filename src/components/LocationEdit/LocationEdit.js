@@ -3,17 +3,56 @@ import { connect } from 'react-redux';
 
 class LocationEdit extends Component {
 
+    componentDidMount() {
+        this.getLocations();
+    } // end componentDidMount
+
+    getLocations = () => {
+        this.props.dispatch({ type: 'FETCH_LOCATION' })
+    }
+
+    handleDelete = () => {
+        console.log('Delete clicked!');
+    }
+
+    handleApprove = () => {
+        console.log('Approve clicked!');  
+    }
+
+
     render () {
         return (
             <div>
-                Location Edit Page
+            <h2>Location List</h2>
+            <tbody>
+                <th>Name</th>
+                <th>Happy Hour Times</th>
+                <th>Website</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Approve</th>
+                <th>Delete</th>
+                {this.props.reduxStore.locationReducer.map((bar) => {
+                    return (
+                    <tr key={bar.id}>
+                        <td>{bar.name}</td>
+                        <td>{bar.time}</td>
+                        <td>{bar.detail}</td>
+                        <td><a href={bar.URL}>Web Link</a></td>
+                        <td>{bar.lat}</td>
+                        <td>{bar.lng}</td>
+                        <td><button onClick={this.handleApprove}>{bar.approve}Approve</button></td>
+                        <td><button onClick={this.handleDelete}>Delete</button></td>
+                    </tr>
+                    )
+                })}
+            </tbody>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    item: state.description,
-  });
-
+const mapStateToProps = (reduxStore) => ({
+    reduxStore
+});
 export default connect(mapStateToProps) (LocationEdit);

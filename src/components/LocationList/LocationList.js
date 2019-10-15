@@ -18,14 +18,21 @@ class LocationList extends Component {
     render () {
         return (
             <div>
-                <p>Location List</p>
+            <h2>Location List</h2>
+            <tbody>
+                <th>Name</th>
+                <th>Happy Hour Times</th>
+                <th>Website</th>
                 {this.props.reduxStore.locationReducer.map((bar) => {
                     return (
-                    <ul key={bar.id}>
-                        <p>{bar.name}</p>
-                    </ul>
+                    <tr key={bar.id}>
+                        <td>{bar.name}</td>
+                        <td>{bar.time}</td>
+                        <td><a href={bar.URL}>Web Link</a></td>
+                    </tr>
                     )
                 })}
+            </tbody>
             </div>
         )
     }
