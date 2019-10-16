@@ -11,6 +11,10 @@ class LocationApprove extends Component {
         this.props.dispatch({ type: 'FETCH_LOCATION' })
     }
 
+    handleClick = (id) => {
+        this.props.dispatch({ type: 'APPROVE_LOCATION', payload: id })
+    }
+
     render () {
         return (
             <>
@@ -28,6 +32,7 @@ class LocationApprove extends Component {
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
+                        <td><button onClick={()=>this.handleClick(bar.id)}>Approve Location</button></td>
                     </tr>
                     )
                 })}

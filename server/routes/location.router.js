@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
+// ---- GET LOCATION ---- //
 // GET all location from database
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
@@ -19,7 +19,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 }); // end GET Locations
 
-
+// ---- ADD LOCATION ---- //
 // Add Location to the database
 router.post('/', (req, res) => {
     const newLocation = req.body;
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
     })
 }); // end POST locations
 
-
+// ---- DELETE LOCATION ---- //
 // Delete an item if it's something the logged in user added
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
@@ -58,14 +58,21 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     })
 }); // end DELETE locations
 
-
-/**
- * Update an item if it's something the logged in user added
- */
-router.put('/:id', (req, res) => {
-
-});
-
+// ---- APPROVE LOCATION ---- //
+// Approve locations (this is a toggle)
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('req.user:', req.user);
+    console.log('is user authenticated?', req.isAuthenticated());
+    let queryText = `UPDATE "location" SET "approve" = NOT "approve" WHERE "id" = $1 AND "user_id" = $2;`;
+    pool.query(queryText, [req.params.id, req.user.id])
+    .then( (results) => {
+        console.log('approve successful', results);
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('Error making APPROVE request (Server)', error);
+        res.sendStatus(500);
+    })
+}); // end GET ALL MOVIES
 
 
 /**
