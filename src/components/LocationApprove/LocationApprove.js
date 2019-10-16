@@ -26,16 +26,23 @@ class LocationApprove extends Component {
                 <th>Happy Hour Times</th>
                 <th>Website</th>
                 </tr>
-                {this.props.reduxStore.locationReducer.map((bar) => {
-                    return (
-                    <tr key={bar.id}>
+                {
+                    this.props.reduxStore.locationReducer.map(bar => bar.approve === true ? (
+                        <tr key={bar.id}>
+                        <td>{bar.name}</td>
+                        <td>{bar.time}</td>
+                        <td><a href={bar.URL}>Web Link</a></td>
+                        <td><button onClick={()=>this.handleClick(bar.id)}>Unapprove</button></td>
+                    </tr> 
+                    ) : (
+                        <tr key={bar.id}>
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
                         <td><button onClick={()=>this.handleClick(bar.id)}>Approve Location</button></td>
-                    </tr>
+                    </tr>    
                     )
-                })}
+                )}
             </tbody>
             </table>
             </>

@@ -45,7 +45,6 @@ class LocationEdit extends Component {
                         <td><a href={bar.URL}>Web Link</a></td>
                         <td>{bar.lat}</td>
                         <td>{bar.lng}</td>
-                        <td><button onClick={this.handleApprove}>{bar.approve}Approve</button></td>
                         <td><button onClick={()=>this.handleDelete(bar.id)}>Delete</button></td>
                     </tr>
                     )

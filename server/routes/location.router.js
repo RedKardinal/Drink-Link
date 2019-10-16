@@ -9,7 +9,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('is authenticated?', req.isAuthenticated() );
     console.log('/shelf GET route');
-    let queryText = 'SELECT * FROM "location";';
+    let queryText = 'SELECT * FROM "location" ORDER BY "name" ASC;';
     pool.query(queryText).then(results => {
         // res.sendStatus(200);
         res.send(results.rows)
@@ -72,7 +72,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
         console.log('Error making APPROVE request (Server)', error);
         res.sendStatus(500);
     })
-}); // end GET ALL MOVIES
+}); // end APPROVE locations
 
 
 /**
