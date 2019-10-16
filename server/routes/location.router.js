@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-// GET all location from Database
+// GET all location from database
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('is authenticated?', req.isAuthenticated() );
@@ -20,27 +20,26 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 }); // end GET Locations
 
 
-/**
-//  * Add an item for the logged in user to the shelf
-//  */
-// router.post('/', (req, res) => {
-//     const newItem = req.body;
-//     const queryValues = [
-//         newItem.description,
-//         newItem.image_url,
-//         req.user.id
-//     ]
-//     const queryText = `INSERT INTO "item" ("description", "image_url", "user_id") VALUES ($1, $2, $3);`;
-//     pool.query(queryText, queryValues)
-//     .then( () => {res.sendStatus(201);
-//     console.log('in POST', queryValues, req.user.id);
-//     })
-//     .catch( (error) => {
-//         console.log('Error in POST REQUEST', error);
-//         res.sendStatus(500);
-//     })
-// });
-// // end POST
+// Add Location to the database
+router.post('/', (req, res) => {
+    const newLocation = req.body;
+    const queryValues = [
+        req.user.id,
+        newLocation.name,
+        newLocation.time,
+        newLocation.web,
+        newLocation.detail
+    ]
+    const queryText = `INSERT INTO "location" ("user_id", "name", "time", "detail", "URL") VALUES ($1, $2, $3, $4, $5);`;
+    pool.query(queryText, queryValues)
+    .then( () => {res.sendStatus(201);
+    console.log('in POST', queryValues, req.user.id);
+    })
+    .catch( (error) => {
+        console.log('Error making POST request (Server)', error);
+        res.sendStatus(500);
+    })
+}); // end POST locations
 
 
 // Delete an item if it's something the logged in user added
@@ -54,10 +53,10 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         console.log('delete successful', results);
         res.sendStatus(200);
     }).catch(error => {
-        console.log('Problem with Delete request', error);
+        console.log('Error making DELETE request (Server)', error);
         res.sendStatus(500);
     })
-});
+}); // end DELETE locations
 
 
 /**
@@ -67,14 +66,6 @@ router.put('/:id', (req, res) => {
 
 });
 
-
-/**
- * Return all users along with the total number of items 
- * they have added to the shelf
- */
-router.get('/count', (req, res) => {
-
-});
 
 
 /**

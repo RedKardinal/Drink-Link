@@ -4,6 +4,7 @@ import axios from 'axios';
 function* locationSaga() {
     yield takeLatest('FETCH_LOCATION', fetchLocation);
     yield takeLatest('DELETE_LOCATION', deleteLocation);
+    yield takeLatest('ADD_LOCATION', addLocation)
 }
 
 // GET locations for locationList, locationEdit, & locationApprove
@@ -17,14 +18,16 @@ function* fetchLocation() {
     }
 } // end fetchLocation
 
-// function* addItem (action) {
-//     try {
-//         yield axios.post('/api/shelf', action.payload )
-//         yield getItems();
-//     } catch (error) {
-//         console.log('Error', error)
-//     }
-// }
+// ADD location to the database
+function* addLocation (action) {
+    try {
+        console.log(action);
+        yield axios.post('/api/location', action.payload )
+        yield fetchLocation();
+    } catch (error) {
+        console.log('Error', error)
+    }
+} // end addLocation
 
 // Delete location called from LocationEdit page
 function* deleteLocation (action) {

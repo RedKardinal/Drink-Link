@@ -9,7 +9,7 @@ class AddForm extends Component {
     
     // State for setting form information
     state = {
-        item: {
+        location: {
             name: '',
             time: '',
             web: '',
@@ -21,12 +21,25 @@ class AddForm extends Component {
     handleChange = (event, propertyName) => {
         console.log(event.target.value);
         this.setState({
-            item: {
-                ...this.state.item,
+            location: {
+                ...this.state.location,
                 [propertyName]: event.target.value
             }
         })
     } // end handleChange
+
+    handleClick = () => {
+        this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
+        console.log(this.state.location);
+        // this.setState({
+        //     location: {
+        //         name: '',
+        //         time: '',
+        //         web: '',
+        //         detail: '',
+        //     }
+        // })
+    }
 
 
     render() {
@@ -34,13 +47,15 @@ class AddForm extends Component {
             <Router>
                 <div>
                     <h1>Add a Location</h1>
-                    <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name"></input>
+                    <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name"/>
                     <br/>
-                    <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times"></input>
+                    <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times"/>
                     <br/>
-                    <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website"></input>
+                    <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website"/>
                     <br/>
-                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" rows="4" cols="70"></textarea>
+                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" rows="4" cols="70"/>
+                    <br/>
+                    <input placeholder="Address"/>
                     <br/>
                     <button onClick={this.handleClick}>Add Location!</button>
                 </div>
