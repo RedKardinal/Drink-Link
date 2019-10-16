@@ -6,6 +6,7 @@ function* locationSaga() {
     yield takeLatest('DELETE_LOCATION', deleteLocation);
     yield takeLatest('ADD_LOCATION', addLocation);
     yield takeLatest('APPROVE_LOCATION', approveLocation);
+    yield takeLatest('FETCH_LOCATION_ID', fetchLocationId)
 }
 
 // GET locations for locationList, locationEdit, & locationApprove
@@ -51,5 +52,16 @@ function* approveLocation(action) {
         console.log('error in APPROVE LOCATIONS saga', error);
     }
 }; // end approveLocaiton
+
+// Edit Location details
+function* fetchLocationId(action){
+    try{                                   
+        const response = yield axios.get(`/api/location/` + action.payload.id)
+        // console.log('This is from the GET location ID index.js', response.data); 
+        yield put ({ type: 'SET_LOCATION_ID', payload: response.data})
+    }catch(error){
+        console.log('Error from fetchGenre', error);
+    }
+}; // end
 
 export default locationSaga;

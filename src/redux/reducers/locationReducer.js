@@ -1,3 +1,4 @@
+// Used to display Locations 
 const locationReducer = (state = [], action) => {
     // console.log(action.payload);
     // console.log(state);
@@ -9,4 +10,4 @@ const locationReducer = (state = [], action) => {
     }
   };
   
-  export default locationReducer;
+export default locationReducer;

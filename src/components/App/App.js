@@ -20,7 +20,7 @@ import LocationList from '../LocationList/LocationList';
 import LocationApprove from '../LocationApprove/LocationApprove';
 import LocationEdit from '../LocationEdit/LocationEdit';
 import UserEdit from '../UserEdit/UserEdit';
-
+import ItemLocationEdit from '../ItemLocationEdit/ItemLocationEdit';
 // ---- CSS ---- //
 import './App.css';
 
@@ -95,13 +95,20 @@ class App extends Component {
               path="/UserEdit"
               component={UserEdit}
             />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/ItemLocationEdit/:id"
+              component={ItemLocationEdit}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
             <Route exact path='/AddForm' component={AddForm}></Route>
           </Switch>
           <Footer />
         </div>
-      </Router>
+      </Router> 
   )}
 }
 
