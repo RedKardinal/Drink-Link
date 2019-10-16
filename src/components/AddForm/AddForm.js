@@ -28,17 +28,17 @@ class AddForm extends Component {
         })
     } // end handleChange
 
-    handleClick = () => {
+    handleClick = (event) => {
         this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
         console.log(this.state.location);
-        // this.setState({
-        //     location: {
-        //         name: '',
-        //         time: '',
-        //         web: '',
-        //         detail: '',
-        //     }
-        // })
+        this.setState({
+            location: {
+                name: '',
+                time: '',
+                web: '',
+                detail: '',
+            }
+        });
     }
 
 
@@ -47,17 +47,19 @@ class AddForm extends Component {
             <Router>
                 <div>
                     <h1>Add a Location</h1>
-                    <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name"/>
+                    
+                    <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/>
                     <br/>
-                    <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times"/>
+                    <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times" value={this.state.location.time}/>
                     <br/>
-                    <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website"/>
+                    <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website" value={this.state.location.web}/>
                     <br/>
-                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" rows="4" cols="70"/>
+                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" value={this.state.location.detail} rows="4" cols="70"/>
                     <br/>
                     <input placeholder="Address"/>
                     <br/>
                     <button onClick={this.handleClick}>Add Location!</button>
+                    
                 </div>
             </Router>
         );
