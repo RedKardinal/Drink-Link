@@ -40,4 +40,21 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+// ---- GET ALL USERS ---- //
+// GET all users from database
+router.get('/all', rejectUnauthenticated, (req, res) => {
+  console.log('req.user:', req.user);
+  console.log('is authenticated?', req.isAuthenticated() );
+  console.log('/user GET route');
+  
+  let queryText = 'SELECT * FROM "user" WHERE "admin" = false ORDER BY "username" ASC;';
+  pool.query(queryText).then(results => {
+      // res.sendStatus(200);
+      res.send(results.rows)
+  }).catch( error => {
+      console.log('Error making GET request (Server)', error);
+      res.sendStatus(500);
+  })
+}); // end GET all users
+
 module.exports = router;

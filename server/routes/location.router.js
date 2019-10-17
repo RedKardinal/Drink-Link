@@ -75,11 +75,21 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 }); // end APPROVE locations
 
 
-/**
- * Return a specific item by id
- */
-router.get('/:id', (req, res) => {
+// ---- GET LOCATION ID ---- //
+// GET location ID from database
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('req.user:', req.user);
+    console.log('is authenticated?', req.isAuthenticated() );
+    console.log('/locationIdEdit GET route');
+    let queryText = 'SELECT * FROM "location" WHERE "location".id = $1 AND "user_id" = $2;';
+    pool.query(queryText, [req.params.id, req.user.id]).then(results => {
+        // res.sendStatus(200);
+        res.send(results.rows)
+    }).catch( error => {
+        console.log('Error making GET Location ID request (Server)', error);
+        res.sendStatus(500);
+    })
+}); // end GET Locations
 
-});
 
 module.exports = router;
