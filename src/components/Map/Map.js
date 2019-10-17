@@ -1,6 +1,5 @@
 // import React, { useState } from 'react';
 // import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps"
-// import * as barData from "../Data/location.json"
 // import mapStyles from "../mapStyles"
 
 
@@ -64,3 +63,7 @@
 //     </div>
 //   );
 // }
+// const mapStateToProps = reduxStore => ({
+//     reduxStore,
+// });
+// export default withRouter(connect(mapStateToProps)(ItemLocationEdit));

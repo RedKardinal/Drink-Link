@@ -33,7 +33,7 @@ class ItemLocationEdit extends Component {
                         <li>Latitude: {bar.lat}</li>
                         <li>Longitude: {bar.lng}</li>
                         <br/>
-                        <button onClick={()=>this.handleEdit(bar.id)}>Edit</button>
+                        {/* <button onClick={()=>this.handleEdit(bar.id)}>Edit</button> */}
                     </ul>
                     )
                 })}

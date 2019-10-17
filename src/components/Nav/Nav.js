@@ -23,6 +23,10 @@ const Nav = (props) => (
             Info Page
           </Link>
 
+          <Link className="nav-link" to="/Map">
+            Map
+          </Link>
+
           <Link className="nav-link" to="/AddForm">
             Add Form
           </Link>

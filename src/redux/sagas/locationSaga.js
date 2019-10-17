@@ -10,6 +10,7 @@ function* locationSaga() {
     yield takeLatest('UPDATE_LOCATION', updateLocation);
 }
 
+// -------- FETCH LOCATIONS -------- // 
 // GET locations for locationList, locationEdit, & locationApprove
 function* fetchLocation() {
     try {
@@ -21,6 +22,7 @@ function* fetchLocation() {
     }
 } // end fetchLocation
 
+// -------- ADD LOCATIONS -------- // 
 // ADD location to the database
 function* addLocation (action) {
     try {
@@ -32,6 +34,7 @@ function* addLocation (action) {
     }
 } // end addLocation
 
+// -------- DELETE LOCATIONS -------- // 
 // Delete location called from LocationEdit page
 function* deleteLocation (action) {
     try {
@@ -43,6 +46,7 @@ function* deleteLocation (action) {
     }
 } // end deleteLocation
 
+// -------- APPROVE LOCATIONS -------- // 
 // Toggle Approve Location
 function* approveLocation(action) {
     try {           
@@ -54,6 +58,7 @@ function* approveLocation(action) {
     }
 }; // end approveLocaiton
 
+// -------- GET LOCATION ID -------- // 
 // Edit Location details
 function* fetchLocationId(action){
     try{                                   
@@ -65,6 +70,7 @@ function* fetchLocationId(action){
     }
 }; // end
 
+// -------- EDIT LOCATION DETAILS -------- // 
 // Edit Location details
 function* updateLocation(action) {
     try {                     
