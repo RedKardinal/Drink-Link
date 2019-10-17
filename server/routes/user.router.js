@@ -57,4 +57,21 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
   })
 }); // end GET all users
 
+// ---- DELETE USER ---- //
+// Delete a user from the database 
+router.delete('/all/:id', rejectUnauthenticated, (req, res) => {
+  console.log('req.user:', req.user);
+  console.log('is user authenticated?', req.isAuthenticated());
+  console.log('in /delete route');
+  let queryText = `DELETE FROM "user" WHERE "id" = $1;`;
+  pool.query(queryText, [req.params.id])
+  .then( (results) => {
+      console.log('delete successful', results);
+      res.sendStatus(200);
+  }).catch(error => {
+      console.log('Error making DELETE request (Server)', error);
+      res.sendStatus(500);
+  })
+}); // end DELETE locations
+
 module.exports = router;

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* allUserSaga() {
     yield takeLatest('FETCH_ALL_USER', getAllUser);
+    yield takeLatest('DELETE_USER', deleteUser)
 }
 
 // GET locations for locationList, locationEdit, & locationApprove
@@ -16,15 +17,15 @@ function* getAllUser() {
     }
 } // end fetchLocation
 
-// // Delete location called from LocationEdit page
-// function* deleteLocation (action) {
-//     try {
-//         yield axios.delete('/api/location/' + action.payload );
-//         yield console.log(action.payload);
-//         yield fetchLocation();
-//     } catch (error) {
-//         console.log('error in DELETE LOCATIONS saga', error);
-//     }
-// } // end deleteLocation
+// Delete location called from LocationEdit page
+function* deleteUser (action) {
+    try {
+        yield axios.delete('/api/user/all/' + action.payload );
+        yield console.log(action.payload);
+        yield getAllUser();
+    } catch (error) {
+        console.log('error in DELETE User saga', error);
+    }
+} // end deleteLocation
 
 export default allUserSaga;
