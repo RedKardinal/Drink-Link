@@ -6,7 +6,8 @@ function* locationSaga() {
     yield takeLatest('DELETE_LOCATION', deleteLocation);
     yield takeLatest('ADD_LOCATION', addLocation);
     yield takeLatest('APPROVE_LOCATION', approveLocation);
-    yield takeLatest('FETCH_LOCATION_ID', fetchLocationId)
+    yield takeLatest('FETCH_LOCATION_ID', fetchLocationId);
+    yield takeLatest('UPDATE_LOCATION', updateLocation);
 }
 
 // GET locations for locationList, locationEdit, & locationApprove
@@ -59,6 +60,18 @@ function* fetchLocationId(action){
         const response = yield axios.get(`/api/location/` + action.payload.id)
         // console.log('This is from the GET location ID index.js', response.data); 
         yield put ({ type: 'SET_LOCATION_ID', payload: response.data})
+    }catch(error){
+        console.log('Error from fetchGenre', error);
+    }
+}; // end
+
+// Edit Location details
+function* updateLocation(action) {
+    try {                     
+    yield axios.put(`/api/location/`, action.payload)
+    console.log('This is from the PUT DETAILS index.js', action.payload)
+    // REFRESH ON BACK@!!!!!
+    yield fetchLocationId();
     }catch(error){
         console.log('Error from fetchGenre', error);
     }

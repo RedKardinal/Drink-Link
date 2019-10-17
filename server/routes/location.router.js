@@ -74,7 +74,6 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     })
 }); // end APPROVE locations
 
-
 // ---- GET LOCATION ID ---- //
 // GET location ID from database
 router.get('/:id', rejectUnauthenticated, (req, res) => {
@@ -90,6 +89,19 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
     })
 }); // end GET Locations
+
+// ---- UPDATE LOCATION INFO ---- //
+// Update details about each location
+router.put('/', (req, res) => {
+    const queryText = `UPDATE "location" SET "name" = $1, "time" = $2, "detail" = $3 "URL" = $4 WHERE "id" = $5;`
+    console.log(req.body);               
+    pool.query(queryText, [req.params.id, req.user.id])
+        .then((result) => { res.send(result.rows); })
+        .catch((error) => {
+            console.log('Error completing Update Location details in router.js', error);
+            resl.sendStatus(500);
+        });
+}); // end updateLocationDetails
 
 
 module.exports = router;

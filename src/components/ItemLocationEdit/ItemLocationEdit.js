@@ -12,6 +12,10 @@ class ItemLocationEdit extends Component {
         this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params });
     }
 
+    handleEdit = () => {
+        this.props.dispatch({ type: 'UPDATE_LOCATION', payload: this.state })
+    }
+
     render() {
         return(
             <Router>
@@ -19,16 +23,18 @@ class ItemLocationEdit extends Component {
                 <h4>Edit Business and Location</h4>
                 {this.props.reduxStore.locationIdReducer.map((bar) => {
                     return (
-                    <tr key={bar.id}>
-                        <td>{bar.name}</td>
-                        <td>{bar.time}</td>
-                        <td>{bar.detail}</td>
-                        <td><a href={bar.URL}>Web Link</a></td>
-                        <td>{bar.lat}</td>
-                        <td>{bar.lng}</td>
-                        <td><button onClick={()=>this.handleEdit(bar.id)}>Edit</button></td>
-                        <td><button onClick={()=>this.handleDelete(bar.id)}>Delete</button></td>
-                    </tr>
+                    <ul key={bar.id}>
+                        <h5>Location details</h5>
+                        <li>Name: {bar.name}</li>
+                        <li>Happy Hour Times: {bar.time}</li>
+                        <li>Additional details: {bar.detail}</li>
+                        <li>Webiste: <a href={bar.URL}>{bar.URL}</a></li>
+                        <h5>Location</h5>
+                        <li>Latitude: {bar.lat}</li>
+                        <li>Longitude: {bar.lng}</li>
+                        <br/>
+                        <button onClick={()=>this.handleEdit(bar.id)}>Edit</button>
+                    </ul>
                     )
                 })}
             </div>
