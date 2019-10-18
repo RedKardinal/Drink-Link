@@ -80,8 +80,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('is authenticated?', req.isAuthenticated() );
     console.log('/locationIdEdit GET route');
-    let queryText = 'SELECT * FROM "location" WHERE "location".id = $1 AND "user_id" = $2;';
-    pool.query(queryText, [req.params.id, req.user.id]).then(results => {
+    let queryText = 'SELECT * FROM "location" WHERE "location".id = $1;';
+    pool.query(queryText, [req.params.id]).then(results => {
         // res.sendStatus(200);
         res.send(results.rows)
     }).catch( error => {
