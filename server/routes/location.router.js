@@ -47,8 +47,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('is user authenticated?', req.isAuthenticated());
     console.log('in /delete route');
-    let queryText = `DELETE FROM "location" WHERE "id" = $1 AND "user_id" = $2;`;
-    pool.query(queryText, [req.params.id, req.user.id])
+    let queryText = `DELETE FROM "location" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id])
     .then( (results) => {
         console.log('delete successful', results);
         res.sendStatus(200);
@@ -63,8 +63,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('is user authenticated?', req.isAuthenticated());
-    let queryText = `UPDATE "location" SET "approve" = NOT "approve" WHERE "id" = $1 AND "user_id" = $2;`;
-    pool.query(queryText, [req.params.id, req.user.id])
+    let queryText = `UPDATE "location" SET "approve" = NOT "approve" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id])
     .then( (results) => {
         console.log('approve successful', results);
         res.sendStatus(200);

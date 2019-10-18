@@ -25,15 +25,16 @@ class ItemLocationEdit extends Component {
                     return (
                     <ul key={bar.id}>
                         <h5>Location details</h5>
-                        <li>Name: {bar.name}</li>
-                        <li>Happy Hour Times: {bar.time}</li>
-                        <li>Additional details: {bar.detail}</li>
-                        <li>Webiste: <a href={bar.URL}>{bar.URL}</a></li>
+                        <input placeholder={bar.name}></input>
+                        <input placeholder={bar.time}></input>
+                        <input placeholder={bar.detail}></input>
+                        <p>Webiste: <a href={bar.URL}>{bar.URL}</a></p>
+                        <input placeholder={bar.URL}></input>
                         <h5>Location</h5>
-                        <li>Latitude: {bar.lat}</li>
-                        <li>Longitude: {bar.lng}</li>
+                        <input placeholder={bar.lat}></input>
+                        <input placeholder={bar.lng}></input>
                         <br/>
-                        {/* <button onClick={()=>this.handleEdit(bar.id)}>Edit</button> */}
+                        <button onClick={()=>this.handleEdit(bar.id)}>Edit</button>
                     </ul>
                     )
                 })}
