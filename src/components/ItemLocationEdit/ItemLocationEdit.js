@@ -7,10 +7,26 @@ import { HashRouter as Router } from 'react-router-dom';
 
 class ItemLocationEdit extends Component {
 
+    state = {
+        id: this.props.match.params.id,
+        name: '',
+        time: '',
+        detail: '',
+        URL: ''
+    };
+    
     componentDidMount() {
         console.log(this.props.match.params);
         this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params });
     }
+    
+    handleChange = (propertyName, event) => {
+        this.setState({
+            ...this.state,
+            [propertyName]: event.target.value,
+        })
+        // console.log('Edit', this.state)
+    } // handles Change in input fields
 
     handleEdit = () => {
         this.props.dispatch({ type: 'UPDATE_LOCATION', payload: this.state })
@@ -25,11 +41,11 @@ class ItemLocationEdit extends Component {
                     return (
                     <ul key={bar.id}>
                         <h5>Location details</h5>
-                        <input placeholder={bar.name}></input>
-                        <input placeholder={bar.time}></input>
-                        <input placeholder={bar.detail}></input>
+                        <input onChange={(event) => this.handleChange('name', event)} placeholder={bar.name}></input>
+                        <input onChange={(event) => this.handleChange('time', event)} placeholder={bar.time}></input>
+                        <input onChange={(event) => this.handleChange('detail', event)} placeholder={bar.detail}></input>
                         <p>Webiste: <a href={bar.URL}>{bar.URL}</a></p>
-                        <input placeholder={bar.URL}></input>
+                        <input onChange={(event) => this.handleChange('URL', event)} placeholder={bar.URL}></input>
                         <h5>Location</h5>
                         <input placeholder={bar.lat}></input>
                         <input placeholder={bar.lng}></input>

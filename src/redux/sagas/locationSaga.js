@@ -74,12 +74,11 @@ function* fetchLocationId(action){
 // Edit Location details
 function* updateLocation(action) {
     try {                     
-    yield axios.put(`/api/location/`, action.payload)
+    yield axios.put(`/api/location/` + action.payload)
     console.log('This is from the PUT DETAILS index.js', action.payload)
-    // REFRESH ON BACK@!!!!!
     yield fetchLocationId();
     }catch(error){
-        console.log('Error from fetchGenre', error);
+        console.log('Error from Edit Location', error);
     }
 }; // end
 
