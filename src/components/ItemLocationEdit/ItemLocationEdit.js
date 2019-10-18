@@ -9,15 +9,15 @@ class ItemLocationEdit extends Component {
 
     state = {
         id: this.props.match.params.id,
-        name: '',
-        time: '',
-        detail: '',
-        URL: ''
+        name: ``,
+        time: ``,
+        detail: ``,
+        URL: ``,
     };
     
     componentDidMount() {
         console.log(this.props.match.params);
-        this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params });
+        this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params.id });
     }
     
     handleChange = (propertyName, event) => {
@@ -25,7 +25,7 @@ class ItemLocationEdit extends Component {
             ...this.state,
             [propertyName]: event.target.value,
         })
-        // console.log('Edit', this.state)
+        console.log('Edit', this.state)
     } // handles Change in input fields
 
     handleEdit = () => {

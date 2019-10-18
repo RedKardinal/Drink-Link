@@ -62,11 +62,11 @@ function* approveLocation(action) {
 // Edit Location details
 function* fetchLocationId(action){
     try{                                   
-        const response = yield axios.get(`/api/location/` + action.payload.id)
+        const response = yield axios.get(`/api/location/` + action.payload)
         // console.log('This is from the GET location ID index.js', response.data); 
         yield put ({ type: 'SET_LOCATION_ID', payload: response.data})
     }catch(error){
-        console.log('Error from fetchGenre', error);
+        console.log('Error from GET LOCATION ID', error);
     }
 }; // end
 
@@ -74,11 +74,11 @@ function* fetchLocationId(action){
 // Edit Location details
 function* updateLocation(action) {
     try {                     
-    yield axios.put(`/api/location/` + action.payload)
+    yield axios.put(`/api/location`, action.payload)
     console.log('This is from the PUT DETAILS index.js', action.payload)
-    yield fetchLocationId();
+    // yield fetchLocationId();
     }catch(error){
-        console.log('Error from Edit Location', error);
+        console.log('Error from EDIT LOCATION ID', error);
     }
 }; // end
 

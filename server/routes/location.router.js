@@ -92,16 +92,23 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 // ---- UPDATE LOCATION INFO ---- //
 // Update details about each location
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
+    // console.log('req.user:', req.user);
+    // console.log(req.params.id);
+    // console.log(req, res);
+    console.log('is user authenticated?', req.isAuthenticated());
     const queryText = `UPDATE "location" SET "name" = $1, "time" = $2, "detail" = $3, "URL" = $4 WHERE "id" = $5;`
-    console.log(req.body);               
-    pool.query(queryText, [req.params.id])
-        .then((result) => { res.send(result.rows); })
-        .catch((error) => {
-            console.log('Error completing Update Location details in router.js', error);
-            resl.sendStatus(500);
-        });
+    console.log('req.bodyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',req.body);               
+    pool.query(queryText, [req.body.name, req.body.time, req.body.detail, req.body.URL, req.body.id])
+    .then( (results) => {
+        console.log('Location update successful', results);
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('Error making UPDATE request (Server)', error);
+        res.sendStatus(500);
+    })
 }); // end updateLocationDetails
-
+// [req.params.id]
+// [req.body.name, req.body.time, req.body.detail, req.body.URL, req.body.id]
 
 module.exports = router;
