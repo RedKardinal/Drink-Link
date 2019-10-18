@@ -1,8 +1,19 @@
-// import React, { useState } from 'react';
-// import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps"
+// ---- Import Redux, Routers, & React ---- //
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+// import { HashRouter as Router } from 'react-router-dom';
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps"
 // import mapStyles from "../mapStyles"
 
+class Map extends Component {
+    render(){
+        return(
+            <div>Map Test</div>
 
+        )
+    }
+}
 // function Map() {
 //   const [selectedBar, setSelectedBar] = useState(null);
 //   return (
@@ -63,7 +74,7 @@
 //     </div>
 //   );
 // }
-// const mapStateToProps = reduxStore => ({
-//     reduxStore,
-// });
-// export default withRouter(connect(mapStateToProps)(ItemLocationEdit));
+const mapStateToProps = reduxStore => ({
+    reduxStore,
+});
+export default withRouter(connect(mapStateToProps)(Map));
