@@ -7,10 +7,17 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "reac
 // import mapStyles from "../mapStyles"
 
 class Map extends Component {
-    render(){
-        return(
+    render() {
+        return (
+            <>
             <div>Map Test</div>
-
+            <GoogleMap
+                defaultZoom={15}
+                defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
+                // defaultOptions={{ styles: mapStyles }}
+            >
+            </GoogleMap>
+            </>
         )
     }
 }
@@ -77,4 +84,4 @@ class Map extends Component {
 const mapStateToProps = reduxStore => ({
     reduxStore,
 });
-export default withRouter(connect(mapStateToProps)(Map));
+export default withRouter(connect(mapStateToProps)(Map))
