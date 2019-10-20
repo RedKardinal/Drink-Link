@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import MapChild from '../MapChild/MapChild';
+import { GoogleMap } from 'react-google-maps';
 
 
 class Map extends Component {

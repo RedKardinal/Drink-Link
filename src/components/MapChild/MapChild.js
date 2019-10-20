@@ -5,11 +5,12 @@ import { withRouter } from 'react-router';
 // import { HashRouter as Router } from 'react-router-dom';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps"
 // import mapStyles from "../mapStyles"
+import Map from '../Map/Map'
 
 
 
 
-function Map() {
+function MapLocations() {
 
 
     return (
@@ -18,13 +19,21 @@ function Map() {
             defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
             
         >
+         {/* {this.props.reduxStore.locationReducer.map((location) => (
+        <Marker key={location.id}
+          position={{
+            lat: location.lat,
+            lng: location.lng
+          }}
+        />
+      ))} */}
         </GoogleMap>
     )
 }
 
 
 
-const DrinkLinkMap = withScriptjs(withGoogleMap(Map))
+const DrinkLinkMap = withScriptjs(withGoogleMap(MapLocations))
 
 function MapChild() {
     return (
