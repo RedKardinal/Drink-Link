@@ -9,7 +9,7 @@ import {
 import {connect} from 'react-redux';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import InfoPage from '../InfoPage/InfoPage';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 // import Map from '../Map/Map'
@@ -114,7 +114,7 @@ class App extends Component {
             <Route render={() => <h1>404</h1>} />
             <Route exact path='/AddForm' component={AddForm}></Route>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router> 
   )}

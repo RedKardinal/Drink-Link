@@ -73,6 +73,10 @@ class LoginPage extends Component {
             />
           </div>
         </form>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <center>
           <button
             type="button"

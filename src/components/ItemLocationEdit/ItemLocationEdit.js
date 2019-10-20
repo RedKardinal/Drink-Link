@@ -50,7 +50,9 @@ class ItemLocationEdit extends Component {
                         <input placeholder={bar.lat}></input>
                         <input placeholder={bar.lng}></input>
                         <br/>
-                        <button onClick={()=>this.handleEdit(bar.id)}>Edit</button>
+                        <a onClick={()=>this.handleEdit(bar.id)} class="waves-effect waves-light btn"><i className="material-icons right">send</i>Submit</a>
+
+                        {/* <button onClick={()=>this.handleEdit(bar.id)}>Edit</button> */}
                     </ul>
                     )
                 })}

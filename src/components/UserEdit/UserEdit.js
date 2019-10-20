@@ -19,19 +19,21 @@ class UserEdit extends Component {
     render () {
         return (
             <div>
-            <table>
-            <tbody>
+            <table className="striped centered highlight">
+            <thead>
                 <tr>
                 <th>User Id</th>
                 <th>Name</th>
                 <th>Delete User</th>
                 </tr>
+            </thead>
+            <tbody>
                 {
                     this.props.reduxStore.allUserReducer.map(user => 
                         <tr key={user.id}>
                         <td>{user.id}</td>
                         <td>{user.username}</td>
-                        <td><button onClick={()=>this.handleDelete(user.id)}>Delete User</button></td>
+                        <td><a onClick={()=>this.handleDelete(user.id)} className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons right">clear</i></a></td>
                     </tr> 
                 )}
             </tbody>

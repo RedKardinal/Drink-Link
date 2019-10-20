@@ -19,27 +19,30 @@ class LocationApprove extends Component {
         return (
             <>
             <h2>Location List</h2>
-            <table>
-            <tbody>
+            <table className="striped center">
+            <thead>
                 <tr>
                 <th>Name</th>
-                <th>Happy Hour Times</th>
+                <th>Times</th>
                 <th>Website</th>
+                <th>Approved?</th>
                 </tr>
+            </thead>    
+            <tbody>    
                 {
                     this.props.reduxStore.locationReducer.map(bar => bar.approve === true ? (
                         <tr key={bar.id}>
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><button onClick={()=>this.handleClick(bar.id)}>Unapprove</button></td>
+                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect"><i className="material-icons right">check</i></a></td>
                     </tr> 
                     ) : (
                         <tr key={bar.id}>
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><button onClick={()=>this.handleClick(bar.id)}>Approve Location</button></td>
+                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons right">clear</i>Not Approved</a></td>
                     </tr>    
                     )
                 )}

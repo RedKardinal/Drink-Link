@@ -29,7 +29,7 @@ class LocationEdit extends Component {
             <Router>
             <>
             <h2>Location List</h2>
-            <table>
+            <table className="striped">
             <tbody>
                 <tr>
                 <th>Name</th>
@@ -40,8 +40,8 @@ class LocationEdit extends Component {
                     return (
                     <tr key={bar.id}>
                         <td>{bar.name}</td>
-                        <td><button onClick={()=>this.handleEdit(bar.id)}>Edit</button></td>
-                        <td><button onClick={()=>this.handleDelete(bar.id)}>Delete</button></td>
+                        <td><a onClick={()=>this.handleEdit(bar.id)} className="btn-floating btn-medium waves-effect waves-light"><i className="material-icons right">edit</i></a></td>
+                        <td><a onClick={()=>this.handleDelete(bar.id)} className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons right">clear</i></a></td>
                     </tr>
                     )
                 })}

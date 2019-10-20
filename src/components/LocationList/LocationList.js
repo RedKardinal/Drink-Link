@@ -21,16 +21,18 @@ class LocationList extends Component {
         return (
             <>
             <h2>Location List</h2>
-            <table>
-            <tbody>
+            <table className="striped center">
+            <thead>
                 <tr>
                 <th>Name</th>
                 <th>Happy Hour Times</th>
                 <th>Website</th>
                 </tr>
+            </thead>
+            <tbody >
                 {
                     this.props.reduxStore.locationReducer.map(bar => bar.approve === true ? (
-                        <tr key={bar.id}>
+                    <tr key={bar.id}>
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>

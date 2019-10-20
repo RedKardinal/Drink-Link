@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
+// import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
 import './Nav.css';
 
 const Nav = (props) => (
-  <div className="nav">
+  <div className="nav" nav="nav-wrapper">
     <Link to="/home">
       <h2 className="nav-title">Prime Solo Project</h2>
     </Link>
@@ -46,7 +48,7 @@ const Nav = (props) => (
           <Link className="nav-link" to="/UserEdit">
             Edit Users
           </Link>
-          
+
           <LogOutButton className="nav-link"/>
         </>
       )}
@@ -68,3 +70,39 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Nav);
+
+// class Nav extends Component {
+
+
+
+//   render() {
+//     return (
+//       <Router>
+
+//       <div>
+//         <Navbar className="teal">
+//           <NavItem>
+//           </NavItem>
+//             <SideNav className="default" trigger={<Button><Icon large className="default">menu</Icon></Button>} options={{ closeOnClick: true }}>
+//             <SideNavItem userView user={{
+//           background: 'https://placeimg.com/640/480/tech',
+//           image: 'big old box',
+//           name: `JOE SCHMO'OLY`,
+
+//             }} />
+//             </SideNav>
+
+            
+//         </Navbar>
+//       </div>
+
+
+//       </Router>
+//     )
+//   }
+// }
+
+// const mapStateToProps = (reduxStore) => ({
+//   reduxStore
+// });
+// export default connect(mapStateToProps)(Nav);
