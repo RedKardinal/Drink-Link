@@ -15,7 +15,6 @@ class ItemLocationEdit extends Component {
         detail: ``,
         URL: ``,
 
-
     };
     
     componentDidMount() {
@@ -49,6 +48,7 @@ class ItemLocationEdit extends Component {
 
     handleEdit = () => {
         this.props.dispatch({ type: 'UPDATE_LOCATION', payload: this.state })
+        this.props.history.push("/LocationEdit")
     }
 
     render() {
@@ -69,7 +69,7 @@ class ItemLocationEdit extends Component {
                         <input placeholder={bar.lng}></input>
                         <br/>
                         <div className="submit">
-                        <a onClick={()=>this.handleEdit(bar.id)} className="waves-effect waves-light btn" href="#ItemLocationEdit/id"><i className="material-icons right">send</i>Submit</a>
+                        <a onClick={()=>this.handleEdit(bar.id)} className="waves-effect waves-light btn" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>
                         </div>
                     </ul>
                     )

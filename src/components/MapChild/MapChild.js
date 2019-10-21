@@ -19,14 +19,14 @@ function MapLocations() {
             defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
             
         >
-         {/* {this.props.reduxStore.locationReducer.map((location) => (
-        <Marker key={location.id}
+
+        <Marker
           position={{
-            lat: location.lat,
-            lng: location.lng
+            lat: 44.977753,
+            lng: -93.265015 
           }}
         />
-      ))} */}
+
         </GoogleMap>
     )
 }

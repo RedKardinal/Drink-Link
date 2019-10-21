@@ -1,16 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router } from 'react-router-dom';
+// import { HashRouter as Router } from 'react-router-dom';
 // import MapChild from '../MapChild/MapChild';
 // import { GoogleMap } from 'react-google-maps';
 import './Map.css'
 
 import {
-    withScriptjs,
-    withGoogleMap,
     GoogleMap,
-    Marker
-} from "react-google-maps";
+    Marker,
+    LoadScript
+} from '@react-google-maps/api';
 
 
 // class Map extends Component {
@@ -63,15 +62,93 @@ import {
 
 
 
+// class Map extends Component {
+
+//     static defaultProps = {
+//         googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`,
+//     }
+
+//     constructor(props) {
+//         super(props);
+//     }
+
+//     componentDidMount() {
+//         this.getLocations();
+//     } // end componentDidMount
+
+//     getLocations = () => {
+//         this.props.dispatch({ type: 'FETCH_LOCATION' })
+//     }
+
+
+
+
+//     RenderMap = withScriptjs(withGoogleMap(props =>
+//         <GoogleMap
+//             defaultZoom={15}
+//             defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
+//         >
+
+//         </GoogleMap>
+//     ));
+
+
+
+//     render() {
+
+
+//         return (
+//             <Fragment>
+//                 <this.RenderMap
+//                     googleMapURL={this.props.googleMapURL}
+//                     loadingElement={<div style={{ height: `100%` }} />}
+//                     containerElement={<div style={{ height: `700px` }} />}
+//                     mapElement={<div style={{ height: `100%` }} />}
+//                     center={{ lat: 44.977753, lng: -93.265015 }}
+//                 >
+//             {this.props.reduxStore.locationReducer.map((location) => {   
+//                 return (   
+//                 <Marker key={location.id}
+//                 position={{
+//                     lat: Number(location.lat),
+//                     lng: Number(location.lng)
+//                   }} />
+//             )})}
+
+//                 </this.RenderMap>
+//             </Fragment>
+//         );
+//     }
+// }
+
+
+// --------------- PASS TO CHILD COMPONENT------------------ //
+// class Map extends Component {
+
+//     componentDidMount() {
+//         this.getLocations();
+//     } // end componentDidMount
+
+//     getLocations = () => {
+//         this.props.dispatch({ type: 'FETCH_LOCATION' })
+//     }
+
+//     render() {
+//         return(
+//             <div>
+//                 <MapChild/>
+//             </div>
+
+//         )
+//     }
+// }
+
+// const mapStateToProps = (reduxStore) => ({
+//     reduxStore
+// });
+// export default connect(mapStateToProps)(Map);
+
 class Map extends Component {
-
-    static defaultProps = {
-        googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`,
-    }
-
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.getLocations();
@@ -81,43 +158,46 @@ class Map extends Component {
         this.props.dispatch({ type: 'FETCH_LOCATION' })
     }
 
-
-
-
-    RenderMap = withScriptjs(withGoogleMap(props =>
-        <GoogleMap
-            defaultZoom={15}
-            defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
-        >
-
-        </GoogleMap>
-    ));
-
-
-
     render() {
-
-
+        // const [selectedBar, setSelectedBar] = useState(null);
         return (
-            <Fragment>
-                <this.RenderMap
-                    googleMapURL={this.props.googleMapURL}
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `700px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                    center={{ lat: 44.977753, lng: -93.265015 }}
-                >
-            {this.props.reduxStore.locationReducer.map((location) => (                
-                <Marker key={location.id}
-                position={{
-                    lat: location.lat,
-                    lng: location.lng
-                  }} />
-            ))}
+            <div>
+                <div className="Map">
+                   <LoadScript
+                        id="script-loader"
+                        googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
+                    >
+                        <GoogleMap
+                            className="example-map"
+                            mapContainerStyle={{
+                                height: "100vh",
+                                width: "auto"
+                            }}
+                            zoom={15}
+                            center={{
+                                lat: 44.977753,
+                                lng: -93.265015
+                            }}
+                        >
+            {this.props.reduxStore.locationReducer.map((location) => {
+                return (
+                    <Marker key={location.id} 
+                    position={{
+                        lat: Number(location.lat),
+                        lng: Number(location.lng)
+                    }}
+                    />
+                )
+            })}
 
-                </this.RenderMap>
-            </Fragment>
-        );
+
+
+                        </GoogleMap>
+                    </LoadScript>
+
+                </div >
+            </div >
+        )
     }
 }
 
