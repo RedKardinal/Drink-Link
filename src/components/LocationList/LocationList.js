@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
+
 
 class LocationList extends Component {
 
@@ -19,6 +21,7 @@ class LocationList extends Component {
         // const {showApproved} = this.state;
 
         return (
+            <Router>
             <>
             <h2>Location List</h2>
             <table className="striped center">
@@ -44,6 +47,7 @@ class LocationList extends Component {
             </tbody>
             </table>
             </>
+            </Router>
         )
     }
 }

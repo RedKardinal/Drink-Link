@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { HashRouter as Router } from 'react-router-dom';
+// import { HashRouter as Router } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 // import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
@@ -71,6 +73,9 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(Nav);
 
+
+
+
 // class Nav extends Component {
 
 
@@ -78,31 +83,45 @@ export default connect(mapStateToProps)(Nav);
 //   render() {
 //     return (
 //       <Router>
+//         <div>
+//           <div>
+//             <Navbar brand={<h2>Drink Linkz</h2>} centerLogo alignLinks="left" className="logo">
+//               <NavItem userView user={{
+//                 background: 'https://placeimg.com/640/480/tech',
+//                 image: '',
+//                 name: 'John Doe',
 
-//       <div>
-//         <Navbar className="teal">
-//           <NavItem>
-//           </NavItem>
-//             <SideNav className="default" trigger={<Button><Icon large className="default">menu</Icon></Button>} options={{ closeOnClick: true }}>
-//             <SideNavItem userView user={{
-//           background: 'https://placeimg.com/640/480/tech',
-//           image: 'big old box',
-//           name: `JOE SCHMO'OLY`,
+//               }} />
+//               <NavItem divider />
 
-//             }} />
-//             </SideNav>
+//               {/* <SideNavItem onClick={() => this.props.history.push("/LocationList")}> 
+// LocationLINKS!!
+// </SideNavItem> */}
+//               <Link to="/Map">Map</Link>
 
-            
-//         </Navbar>
-//       </div>
+//               <Link to="/LocationList">The List</Link>
+
+//               <Link to="/AddForm">Add Form</Link>
+
+//               <Link to="/LocationApprove">Approve Location</Link>
+
+//               <Link to="/LocationEdit">Edit Location</Link>
+
+//               <Link to="/UserEdit">User Edit</Link>
+
+//               <LogOutButton className="nav-link" />
+
+//             </Navbar>
 
 
+
+//           </div>
+//         </div>
 //       </Router>
+
 //     )
 //   }
 // }
 
-// const mapStateToProps = (reduxStore) => ({
-//   reduxStore
-// });
-// export default connect(mapStateToProps)(Nav);
+
+// export default connect()(withRouter(Nav));

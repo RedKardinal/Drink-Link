@@ -111,7 +111,7 @@ class App extends Component {
               component={Map}
             />
             {/* If none of the other routes matched, we will show a 404. */}
-            <Route render={() => <h1>404</h1>} />
+            <Route render={() => <h1>404 Yikes!</h1>} />
             <Route exact path='/AddForm' component={AddForm}></Route>
           </Switch>
           {/* <Footer /> */}
@@ -119,5 +119,11 @@ class App extends Component {
       </Router> 
   )}
 }
+
+
+// const mapStateToProps = state => ({
+//   user: state.user,
+// });
+// export default connect(mapStateToProps)(App);
 
 export default connect()(App);
