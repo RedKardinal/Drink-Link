@@ -46,7 +46,7 @@ class AddForm extends Component {
         return (
 
                 <div>
-                    <h1>Add a Location</h1>
+                    <h3>Add a Location</h3>
                     
                     <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/>
                     <br/>
@@ -60,7 +60,7 @@ class AddForm extends Component {
                     <br/>
                     {/* <button onClick={this.handleClick}>Add Location!</button> */}
                     <div className="submit">
-                    <a onClick={this.handleClick} class="waves-effect waves-light btn"><i className="material-icons right">send</i>Submit</a>
+                    <a onClick={this.handleClick} className="waves-effect waves-light btn" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
                     </div>
                     
                 </div>

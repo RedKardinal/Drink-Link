@@ -95,6 +95,7 @@ class Map extends Component {
 
 
     render() {
+        
         return (
             <Fragment>
                 <this.CMap

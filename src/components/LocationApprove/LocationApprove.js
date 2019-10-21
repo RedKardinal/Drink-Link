@@ -35,14 +35,14 @@ class LocationApprove extends Component {
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect"><i className="material-icons right">check</i></a></td>
+                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect" href="#LocationApprove"><i className="material-icons right">check</i></a></td>
                     </tr> 
                     ) : (
                         <tr key={bar.id}>
                         <td>{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons right">clear</i>Not Approved</a></td>
+                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect waves-light red" href="#LocationApprove"><i className="material-icons right">clear</i>Not Approved</a></td>
                     </tr>    
                     )
                 )}

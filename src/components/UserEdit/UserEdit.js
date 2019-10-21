@@ -33,7 +33,7 @@ class UserEdit extends Component {
                         <tr key={user.id}>
                         <td>{user.id}</td>
                         <td>{user.username}</td>
-                        <td><a onClick={()=>this.handleDelete(user.id)} className="btn-floating btn-medium waves-effect waves-light red"><i className="material-icons right">clear</i></a></td>
+                        <td><a onClick={()=>this.handleDelete(user.id)} className="btn-floating btn-medium waves-effect waves-light red" href="#UserEdit"><i className="material-icons right">clear</i></a></td>
                     </tr> 
                 )}
             </tbody>

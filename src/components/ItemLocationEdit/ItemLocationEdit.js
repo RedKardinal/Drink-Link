@@ -51,7 +51,7 @@ class ItemLocationEdit extends Component {
                         <input placeholder={bar.lng}></input>
                         <br/>
                         <div className="submit">
-                        <a onClick={()=>this.handleEdit(bar.id)} class="waves-effect waves-light btn"><i className="material-icons right">send</i>Submit</a>
+                        <a onClick={()=>this.handleEdit(bar.id)} className="waves-effect waves-light btn" href="#ItemLocationEdit/id"><i className="material-icons right">send</i>Submit</a>
                         </div>
                     </ul>
                     )
