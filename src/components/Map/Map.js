@@ -83,38 +83,39 @@ class Map extends Component {
 
 
 
-    CMap = withScriptjs(withGoogleMap(props =>
+
+    RenderMap = withScriptjs(withGoogleMap(props =>
         <GoogleMap
             defaultZoom={15}
             defaultCenter={{ lat: 44.977753, lng: -93.265015 }}
         >
-            {props.children}
+
         </GoogleMap>
     ));
 
 
 
     render() {
-        
+
+
         return (
             <Fragment>
-                <this.CMap
+                <this.RenderMap
                     googleMapURL={this.props.googleMapURL}
                     loadingElement={<div style={{ height: `100%` }} />}
                     containerElement={<div style={{ height: `700px` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
-                    center={{ lat: 25.03, lng: 121.6 }}
+                    center={{ lat: 44.977753, lng: -93.265015 }}
                 >
+            {this.props.reduxStore.locationReducer.map((location) => (                
+                <Marker key={location.id}
+                position={{
+                    lat: location.lat,
+                    lng: location.lng
+                  }} />
+            ))}
 
-                    {this.props.reduxStore.locationReducer.map((location) => (
-                        <Marker key={location.id}
-                            position={{
-                                lat: location.lat,
-                                lng: location.lng
-                            }}
-                        />
-                    ))}
-                </this.CMap>
+                </this.RenderMap>
             </Fragment>
         );
     }

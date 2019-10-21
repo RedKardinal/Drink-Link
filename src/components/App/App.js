@@ -22,6 +22,9 @@ import LocationEdit from '../LocationEdit/LocationEdit';
 import UserEdit from '../UserEdit/UserEdit';
 import ItemLocationEdit from '../ItemLocationEdit/ItemLocationEdit';
 import Map from '../Map/Map';
+
+
+import FindLocation from '../FindLocation/FindLocation'
 // ---- CSS ---- //
 import './App.css';
 
@@ -109,6 +112,13 @@ class App extends Component {
               exact
               path="/Map"
               component={Map}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/FindLocation"
+              component={FindLocation}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404 Yikes!</h1>} />

@@ -14,11 +14,29 @@ class ItemLocationEdit extends Component {
         time: ``,
         detail: ``,
         URL: ``,
+
+
     };
     
     componentDidMount() {
         console.log(this.props.match.params);
         this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params.id });
+    }
+
+    componentDidUpdate(previousProps) {
+        if (this.props.reduxStore.locationIdReducer !== previousProps.reduxStore.locationIdReducer) {
+        this.loadFields(); }
+    }
+
+    loadFields = () => {
+        this.props.reduxStore.locationIdReducer.forEach(element => {
+            this.setState({
+                name: element.name,
+                time: element.time,
+                detail: element.detail,
+                URL: element.URL
+        });
+    })
     }
     
     handleChange = (propertyName, event) => {
@@ -41,11 +59,11 @@ class ItemLocationEdit extends Component {
                     return (
                     <ul key={bar.id}>
                         <h5>Location details</h5>
-                        <input onChange={(event) => this.handleChange('name', event)} placeholder={bar.name}></input>
-                        <input onChange={(event) => this.handleChange('time', event)} placeholder={bar.time}></input>
-                        <input onChange={(event) => this.handleChange('detail', event)} placeholder={bar.detail}></input>
+                        <input onChange={(event) => this.handleChange('name', event)} value={this.state.name}></input>
+                        <input onChange={(event) => this.handleChange('time', event)} value={this.state.time} ></input>
+                        <input onChange={(event) => this.handleChange('detail', event)} value={this.state.detail}></input>
                         <p>Webiste: <a href={bar.URL}>{bar.URL}</a></p>
-                        <input onChange={(event) => this.handleChange('URL', event)} placeholder={bar.URL}></input>
+                        <input onChange={(event) => this.handleChange('URL', event)} value={this.state.URL}></input>
                         <h5>Location</h5>
                         <input placeholder={bar.lat}></input>
                         <input placeholder={bar.lng}></input>

@@ -90,6 +90,19 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     })
 }); // end GET Locations
 
+// ---- GET LOCATION ID FOR RENDER ---- //
+// GET location ID from database
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    let queryText = 'SELECT * FROM "location" WHERE "location".id = $1;';
+    pool.query(queryText, [req.params.id]).then(results => {
+        // res.sendStatus(200);
+        res.send(results.rows)
+    }).catch( error => {
+        console.log('Error making GET Location ID request (Server)', error);
+        res.sendStatus(500);
+    })
+}); // end GET Locations
+
 // ---- UPDATE LOCATION INFO ---- //
 // Update details about each location
 router.put('/', rejectUnauthenticated, (req, res) => {
