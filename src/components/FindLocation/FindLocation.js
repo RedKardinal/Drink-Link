@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Geocode from "react-geocode"
 import { connect } from 'react-redux';
 
@@ -16,7 +15,9 @@ class FindLocation extends Component {
         autoFill: {
             name: '',
             lat: '',
-            lng: ''
+            lng: '',
+            URL: '',
+            web: '',
         }
     }
 
@@ -71,7 +72,7 @@ class FindLocation extends Component {
         //set search options as defined by google
         let options = {
             types: ['establishment'],
-            fields: ['place_id', 'name', 'types', 'formatted_address', 'geometry']
+            fields: ['name', 'geometry', 'website']
         }
         // Get the HTML input element on which the autocomplete search box attaches
         let input = document.getElementById('findPlace');
@@ -90,6 +91,7 @@ class FindLocation extends Component {
             // placesId: thePlace.place_id,
             lat: googleStuff.geometry.location.lat(),
             lng: googleStuff.geometry.location.lng(),
+            web: googleStuff.website,
             }
         })        
     }
@@ -115,6 +117,8 @@ class FindLocation extends Component {
                     <p>{this.state.autoFill.name}</p>
                     <p>{this.state.autoFill.lat}</p>
                     <p>{this.state.autoFill.lng}</p>
+                    <p>{this.state.autoFill.web}</p>
+
                 </div>
             </div >
         )

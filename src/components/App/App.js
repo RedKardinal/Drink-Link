@@ -7,31 +7,32 @@ import {
   Switch,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
+// ---- Import Script for Google Autofill ---- //
 import Script from 'react-load-script';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
+import FindLocation from '../FindLocation/FindLocation'
 // import Footer from '../Footer/Footer';
 import InfoPage from '../InfoPage/InfoPage';
+import ItemLocationEdit from '../ItemLocationEdit/ItemLocationEdit';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-// import Map from '../Map/Map'
 import Nav from '../Nav/Nav';
 import UserPage from '../UserPage/UserPage';
 import AddForm from '../AddForm/AddForm';
 import LocationList from '../LocationList/LocationList';
 import LocationApprove from '../LocationApprove/LocationApprove';
 import LocationEdit from '../LocationEdit/LocationEdit';
-import UserEdit from '../UserEdit/UserEdit';
-import ItemLocationEdit from '../ItemLocationEdit/ItemLocationEdit';
 import Map from '../Map/Map';
-import FindLocation from '../FindLocation/FindLocation'
+import UserEdit from '../UserEdit/UserEdit';
 // ---- CSS ---- //
 import './App.css';
 
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
-  }
+  } // end componenetDidMount
 
+  // let googlePlaces loads the scripts I need to use the autofill...
   render() {
     let googlePlaces = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`
     return (
