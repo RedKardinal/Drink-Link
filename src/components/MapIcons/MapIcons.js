@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {
-    GoogleMap,
     Marker,
-    LoadScript,
     InfoWindow
 
 } from '@react-google-maps/api';

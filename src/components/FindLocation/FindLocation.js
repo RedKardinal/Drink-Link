@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Geocode from "react-geocode"
 import { connect } from 'react-redux';
 
+
 class FindLocation extends Component {
 
     state = {
@@ -21,9 +22,9 @@ class FindLocation extends Component {
         }
     }
 
-    componentDidMount = () => {
-        this.handleScriptLoad();
-    }
+    // componentDidMount = () => {
+    //     this.handleScriptLoad();
+    // }
 
     handleChange = (event, propertyName) => {
         console.log(event.target.value);
@@ -66,35 +67,35 @@ class FindLocation extends Component {
     }
 
 
-    handleScriptLoad = () => {
-        //define google as the global google brought in when script loads and google API is hit
-        const google = window.google;
-        //set search options as defined by google
-        let options = {
-            types: ['establishment'],
-            fields: ['name', 'geometry', 'website']
-        }
-        // Get the HTML input element on which the autocomplete search box attaches
-        let input = document.getElementById('findPlace');
-        //create the autocomplete object - Google's magic
-        this.autocomplete = new google.maps.places.Autocomplete(input, options);
-        //attach a listener to fire off a new function when place changes(user selects place)
-        this.autocomplete.addListener('place_changed', this.placeChangeHandler);
-    }
-    placeChangeHandler = () => {
-        //get data on the place google search identified
-        let googleStuff = this.autocomplete.getPlace();
-        console.log(googleStuff);
-        this.setState({
-            autoFill: {
-            name: googleStuff.name,
-            // placesId: thePlace.place_id,
-            lat: googleStuff.geometry.location.lat(),
-            lng: googleStuff.geometry.location.lng(),
-            web: googleStuff.website,
-            }
-        })        
-    }
+    // handleScriptLoad = () => {
+    //     //define google as the global google brought in when script loads and google API is hit
+    //     const google = window.google;
+    //     //set search options as defined by google
+    //     let options = {
+    //         types: ['establishment'],
+    //         fields: ['name', 'geometry', 'website']
+    //     }
+    //     // Get the HTML input element on which the autocomplete search box attaches
+    //     let input = document.getElementById('findPlace');
+    //     //create the autocomplete object - Google's magic
+    //     this.autocomplete = new google.maps.places.Autocomplete(input, options);
+    //     //attach a listener to fire off a new function when place changes(user selects place)
+    //     this.autocomplete.addListener('place_changed', this.placeChangeHandler);
+    // }
+    // placeChangeHandler = () => {
+    //     //get data on the place google search identified
+    //     let googleStuff = this.autocomplete.getPlace();
+    //     console.log(googleStuff);
+    //     this.setState({
+    //         autoFill: {
+    //         name: googleStuff.name,
+    //         // placesId: thePlace.place_id,
+    //         lat: googleStuff.geometry.location.lat(),
+    //         lng: googleStuff.geometry.location.lng(),
+    //         web: googleStuff.website,
+    //         }
+    //     })        
+    // }
 
     render() {
         return (
