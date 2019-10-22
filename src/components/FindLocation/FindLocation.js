@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import GeoCode from "react-geocode"
+import Geocode from "react-geocode"
 import { connect } from 'react-redux';
 
 class FindLocation extends Component {
@@ -27,10 +27,11 @@ class FindLocation extends Component {
 
     handleClick = (event) => {
         console.log(this.state.coordinates);
-        GeoCode.setLanguage("en");
-        GeoCode.setRegion("us");
-        GeoCode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
-        GeoCode.fromAddress(this.state.coordinates).then(
+        Geocode.setLanguage("en");
+        Geocode.setRegion("us");
+        Geocode.enableDebug(true);
+        Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
+        Geocode.fromAddress(JSON.stringify(this.state.coordinates)).then(
             response => {
                 const {lat, lng} = response.results[0].geometry.location;
                 console.log(lat, lng);
