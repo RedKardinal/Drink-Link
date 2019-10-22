@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { HashRouter as Router } from 'react-router-dom';
-// import MapChild from '../MapChild/MapChild';
-// import { GoogleMap } from 'react-google-maps';
-
 
 import {
     GoogleMap,
@@ -47,7 +43,9 @@ class MapIcons extends Component {
 
                 />
                 )
-                            })}{this.state.window ?
+                            })}
+                            
+                            {this.state.window ?
                     <InfoWindow key={this.props.location.id}
                         position={{
                             lat: Number(this.props.location.lat),
