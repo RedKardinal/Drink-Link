@@ -11,7 +11,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav" nav="nav-wrapper">
     <Link to="/home">
-      <h2 className="nav-title">Drink Linkz</h2>
+      {/* <h2 className="nav-title">Drink Linkz</h2> */}
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">

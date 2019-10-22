@@ -55,13 +55,21 @@ class MapIcons extends Component {
                         }}
                         onCloseClick={{
                         }}
+                        icon={{
+                            fillOpacity: 1.0,
+                            strokeWeight: 0,
+                            scale: 1.25,
+                            path: './vector.svg'
+                        }}
                     >
                         <div style={{
                             background: `white`,
-                            border: `1px solid #ccc`,
+                            // border: `1px solid #ccc`,
                             padding: 5
                         }}>
-                            <p>InfoWindow</p>
+                            <h6>{this.props.location.name}</h6>
+                            <p>{this.props.location.time}</p>
+                            <p>{this.props.location.URL}</p>
                         </div>
                     </InfoWindow>
                     :

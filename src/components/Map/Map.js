@@ -21,8 +21,8 @@ class Map extends Component {
         this.props.dispatch({ type: 'FETCH_LOCATION' })
     }
 
-
     render() {
+        const mapStyles = Styles
         return (
             <div>
                 <div className="Map">
@@ -42,11 +42,11 @@ class Map extends Component {
                                 lat: 44.977753,
                                 lng: -93.265015,
                             }}
-                            options={{}}
+                            options={{styles:mapStyles}}
                         >
                             {this.props.reduxStore.locationReducer.map((location) => {
                                 return(
-                                    <MapIcons location={location} key={location.id}/>
+                                    <MapIcons location={location}/>
                                 )
                             })}
 
