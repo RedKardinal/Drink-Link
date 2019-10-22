@@ -7,6 +7,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
+import Script from 'react-load-script';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
 // import Footer from '../Footer/Footer';
@@ -22,8 +23,6 @@ import LocationEdit from '../LocationEdit/LocationEdit';
 import UserEdit from '../UserEdit/UserEdit';
 import ItemLocationEdit from '../ItemLocationEdit/ItemLocationEdit';
 import Map from '../Map/Map';
-
-
 import FindLocation from '../FindLocation/FindLocation'
 // ---- CSS ---- //
 import './App.css';
@@ -34,10 +33,12 @@ class App extends Component {
   }
 
   render() {
+    let googlePlaces = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`
     return (
       <Router>
         <div>
           <Nav />
+          <Script url={googlePlaces}/>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
