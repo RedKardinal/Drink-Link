@@ -5,10 +5,65 @@ import { connect } from 'react-redux';
 
 class FindLocation extends Component {
 
+    state={
+        coordinates: {
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        apt: 1
+        }
+    }
+
+    handleChange = (event, propertyName) => {
+        console.log(event.target.value);
+        this.setState({
+            coordinates: {
+                ...this.state.coordinates,
+                [propertyName]: event.target.value
+            }
+        })
+    } // end handleChange
+
+    handleClick = (event) => {
+        console.log(this.state.coordinates);
+        GeoCode.setLanguage("en");
+        GeoCode.setRegion("us");
+        GeoCode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
+        GeoCode.fromAddress(this.state.coordinates).then(
+            response => {
+                const {lat, lng} = response.results[0].geometry.location;
+                console.log(lat, lng);
+            },
+            error => {
+                console.log(error);         
+            }
+        )
+        this.setState({
+            coordinates: {
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                apt: 1
+            }
+        });
+    }
+      
+
     render() {
         return (
             <div>
-                <div className="Map">
+                <div className="findAddress">
+                    <input placeholder="address" value={this.state.coordinates.address} onChange={(event) => { this.handleChange(event, 'address') }}/>
+                    <input placeholder="city" value={this.state.coordinates.city} onChange={(event) => { this.handleChange(event, 'city') }}/>
+                    <input placeholder="state" value={this.state.coordinates.state} onChange={(event) => { this.handleChange(event, 'state') }}/>
+                    <input placeholder="zip" value={this.state.coordinates.zip} onChange={(event) => { this.handleChange(event, 'zip') }}/>
+                    <button onClick={this.handleClick}>Submit</button>
+                    <br/>
+                </div>
+                <br/>
+                <div className="MapLocation">
                     <LoadScript
                         id="script-loader"
                         googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}
