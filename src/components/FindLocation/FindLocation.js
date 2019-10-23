@@ -13,6 +13,10 @@ class FindLocation extends Component {
             zip: '',
             apt: 1,
         },
+        testLocation: {
+            laty: '',
+            lngy: '',
+        },
         autoFill: {
             name: '',
             lat: '',
@@ -26,45 +30,52 @@ class FindLocation extends Component {
     //     this.handleScriptLoad();
     // }
 
-    // handleChange = (event, propertyName) => {
-    //     console.log(event.target.value);
-    //     this.setState({
-    //         coordinates: {
-    //             ...this.state.coordinates,
-    //             [propertyName]: event.target.value
-    //         }
-    //     })
-    // } // end handleChange
+    handleChange = (event, propertyName) => {
+        console.log(event.target.value);
+        this.setState({
+            coordinates: {
+                ...this.state.coordinates,
+                [propertyName]: event.target.value
+            }
+        })
+    } // end handleChange
 
-    // handleClick = (event) => {
-    //     console.log(this.state.coordinates);
-    //     Geocode.setLanguage("en");
-    //     Geocode.setRegion("us");
-    //     Geocode.enableDebug(true);
-    //     Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
-    //     Geocode.fromAddress(JSON.stringify(this.state.coordinates)).then(
-    //         response => {
-    //             const { lat, lng } = response.results[0].geometry.location;
-    //             console.log(lat, lng);
-    //             console.log(this.state.coordinates);
+    handleClick = (event) => {
+        console.log(this.state.coordinates);
+        Geocode.setLanguage("en");
+        Geocode.setRegion("us");
+        Geocode.enableDebug(true);
+        Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
+        Geocode.fromAddress(JSON.stringify(this.state.coordinates)).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log(lat, lng);
+                console.log(this.state.coordinates);
+                this.setState({
+                    testLocation: {
+                        laty: lat,
+                        lngy: lng
+                    }
+                })
+            },
+            error => {
+                console.log(error);
+            }
+        )
+        this.setState({
+            coordinates: {
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                apt: 1,
+            }
 
-    //         },
-    //         error => {
-    //             console.log(error);
-    //         }
-    //     )
-    //     this.setState({
-    //         coordinates: {
-    //             address: '',
-    //             city: '',
-    //             state: '',
-    //             zip: '',
-    //             apt: 1,
-    //         }
-
-    //     });
-    //     console.log(this.state.coordinates);
-    // }
+        });
+        console.log(this.state.coordinates);
+        console.log(this.state.testLocation);
+        
+    }
 
 
     // handleScriptLoad = () => {

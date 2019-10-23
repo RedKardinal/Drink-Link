@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 // import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
+import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
 import './Nav.css';
+import './vector.svg'
 
 const Nav = (props) => (
   <div className="nav" nav="nav-wrapper">
@@ -84,36 +85,36 @@ export default connect(mapStateToProps)(Nav);
 //     return (
 //       <Router>
 //         <div>
-//           <div>
-//             <Navbar brand={<h2>Drink Linkz</h2>} centerLogo alignLinks="left" className="logo">
-//               <NavItem userView user={{
+//           <div className="nav-wrapper">
+//             <Navbar brand={<a className="Lo" href="/">Drink Linkz</a>} centerLogo alignLinks="left" className="logo black">
+//               <SideNavItem className="avatar" userView user={{
 //                 background: 'https://placeimg.com/640/480/tech',
-//                 image: '',
-//                 name: 'John Doe',
+//                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsfIbM_FkH_Z8GjeW4puxbrwy_KmLqThFkCmA3zqUf_C-d6QUh',
+//                 name: 'Welcome!',
+//                 email: 'bingo',
 
 //               }} />
+
 //               <NavItem divider />
 
-//               {/* <SideNavItem onClick={() => this.props.history.push("/LocationList")}> 
-// LocationLINKS!!
-// </SideNavItem> */}
-//               <Link to="/Map">Map</Link>
+//               <Link to="/Map"><i className="material-icons">home</i>Map</Link>
 
-//               <Link to="/LocationList">The List</Link>
+//               <Link to="/LocationList"><i className="material-icons">list</i>The List</Link>
+//               <Link to="/AddForm"><i className="material-icons">add_circle</i>Add Form</Link>
 
-//               <Link to="/AddForm">Add Form</Link>
+//               <Link to="/LocationApprove"><i className="material-icons">check_circle</i>Approve Location</Link>
 
-//               <Link to="/LocationApprove">Approve Location</Link>
+//               <Link to="/LocationEdit"><i className="material-icons">edit</i>Edit Location</Link>
 
-//               <Link to="/LocationEdit">Edit Location</Link>
+//               <Link to="/UserEdit"><i className="material-icons">supervised_user_circle</i>User Edit</Link>
+//               <br />
+//               <br />
+//               <br />
 
-//               <Link to="/UserEdit">User Edit</Link>
 
-//               <LogOutButton className="nav-link" />
+//               <NavItem className="avatar"><LogOutButton className="nav-link" /></NavItem>
 
 //             </Navbar>
-
-
 
 //           </div>
 //         </div>
@@ -124,4 +125,9 @@ export default connect(mapStateToProps)(Nav);
 // }
 
 
-// export default connect()(withRouter(Nav));
+
+// const mapStateToProps = state => ({
+//   user: state.user,
+// });
+
+// export default connect(mapStateToProps)(Nav);

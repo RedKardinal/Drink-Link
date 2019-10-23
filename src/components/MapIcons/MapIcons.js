@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './MapIcons.css'
 
 import {
     Marker,
@@ -59,7 +60,9 @@ class MapIcons extends Component {
                             path: './vector.svg'
                         }}
                     >
-                        <div style={{
+                        <div 
+                        className="bubbles"
+                        style={{
                             background: `white`,
                             // border: `1px solid #ccc`,
                             padding: 5

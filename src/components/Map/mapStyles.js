@@ -1,26 +1,16 @@
-// SnazzyMaps.com
 export default [
     {
-        "featureType": "all",
-        "elementType": "all",
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
         "stylers": [
             {
-                "saturation": "32"
-            },
-            {
-                "lightness": "-3"
-            },
-            {
-                "visibility": "on"
-            },
-            {
-                "weight": "1.18"
+                "color": "#6195a0"
             }
         ]
     },
     {
-        "featureType": "administrative",
-        "elementType": "labels",
+        "featureType": "administrative.province",
+        "elementType": "geometry.stroke",
         "stylers": [
             {
                 "visibility": "off"
@@ -29,10 +19,19 @@ export default [
     },
     {
         "featureType": "landscape",
-        "elementType": "labels",
+        "elementType": "geometry",
         "stylers": [
             {
-                "visibility": "off"
+                "lightness": "0"
+            },
+            {
+                "saturation": "0"
+            },
+            {
+                "color": "#f5f5f2"
+            },
+            {
+                "gamma": "1"
             }
         ]
     },
@@ -41,16 +40,16 @@ export default [
         "elementType": "all",
         "stylers": [
             {
-                "saturation": "-70"
+                "lightness": "-3"
             },
             {
-                "lightness": "14"
+                "gamma": "1.00"
             }
         ]
     },
     {
-        "featureType": "poi",
-        "elementType": "labels",
+        "featureType": "landscape.natural.terrain",
+        "elementType": "all",
         "stylers": [
             {
                 "visibility": "off"
@@ -58,8 +57,83 @@ export default [
         ]
     },
     {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#bae5ce"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
         "featureType": "road",
-        "elementType": "labels",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#fac9a9"
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "color": "#4e4e4e"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#787878"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
         "stylers": [
             {
                 "visibility": "off"
@@ -68,10 +142,55 @@ export default [
     },
     {
         "featureType": "transit",
-        "elementType": "labels",
+        "elementType": "all",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.airport",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "hue": "#0a00ff"
+            },
+            {
+                "saturation": "-77"
+            },
+            {
+                "gamma": "0.57"
+            },
+            {
+                "lightness": "0"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.rail",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#43321e"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.rail",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "hue": "#ff6c00"
+            },
+            {
+                "lightness": "4"
+            },
+            {
+                "gamma": "0.75"
+            },
+            {
+                "saturation": "-68"
             }
         ]
     },
@@ -80,128 +199,35 @@ export default [
         "elementType": "all",
         "stylers": [
             {
-                "saturation": "100"
+                "color": "#eaf6f8"
             },
             {
-                "lightness": "-14"
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "labels",
+        "elementType": "geometry.fill",
         "stylers": [
             {
-                "visibility": "off"
+                "color": "#c7eced"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "lightness": "-49"
             },
             {
-                "lightness": "12"
+                "saturation": "-53"
+            },
+            {
+                "gamma": "0.79"
             }
         ]
     }
 ]
-
-// export default [
-//     {
-//         "featureType": "landscape",
-//         "stylers": [
-//             {
-//                 "hue": "#FFBB00"
-//             },
-//             {
-//                 "saturation": 43.400000000000006
-//             },
-//             {
-//                 "lightness": 37.599999999999994
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "road.highway",
-//         "stylers": [
-//             {
-//                 "hue": "#FFC200"
-//             },
-//             {
-//                 "saturation": -61.8
-//             },
-//             {
-//                 "lightness": 45.599999999999994
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "road.arterial",
-//         "stylers": [
-//             {
-//                 "hue": "#FF0300"
-//             },
-//             {
-//                 "saturation": -100
-//             },
-//             {
-//                 "lightness": 51.19999999999999
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "road.local",
-//         "stylers": [
-//             {
-//                 "hue": "#FF0300"
-//             },
-//             {
-//                 "saturation": -100
-//             },
-//             {
-//                 "lightness": 52
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "water",
-//         "stylers": [
-//             {
-//                 "hue": "#0078FF"
-//             },
-//             {
-//                 "saturation": -13.200000000000003
-//             },
-//             {
-//                 "lightness": 2.4000000000000057
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "poi",
-//         "stylers": [
-//             {
-//                 "hue": "#00FF6A"
-//             },
-//             {
-//                 "saturation": -1.0989010989011234
-//             },
-//             {
-//                 "lightness": 11.200000000000017
-//             },
-//             {
-//                 "gamma": 1
-//             }
-//         ]
-//     }
-// ]

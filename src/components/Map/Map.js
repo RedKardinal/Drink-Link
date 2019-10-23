@@ -30,9 +30,8 @@ class Map extends Component {
                     >
                         <GoogleMap
                             className="example-map"
-                            // extraMapTypes={Styles}
                             mapContainerStyle={{
-                                height: "100vh",
+                                height: "92vh",
                                 width: "auto"
                             }}
                             zoom={15}
@@ -40,7 +39,7 @@ class Map extends Component {
                                 lat: 44.977753,
                                 lng: -93.265015,
                             }}
-                            // options={{styles:mapStyles}}
+                            options={{styles:mapStyles}}
                         >
                             {this.props.reduxStore.locationReducer.map((location) => {
                                 return(

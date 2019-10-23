@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // ---- Import CSS ---- //
 import './AddForm.css';
+import TextField from '@material-ui/core/TextField';
 
 class AddForm extends Component {
-    
+
     // State for setting form information
     state = {
         location: {
@@ -94,34 +95,43 @@ class AddForm extends Component {
 
     render() {
         return (
-                <div>
-                    <h3>Add a Location</h3>
-                    
-                    {/* <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/> */}
+            <div>
+                <h3>Add a Location</h3>
 
-                    {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
-                    <br/>
-                    <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times" value={this.state.location.time}/>
-                    <br/>
-                    {/* <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website" value={this.state.location.web}/> */}
-                    <br/>
-                    <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" value={this.state.location.detail} rows="4" cols="70"/>
-                    <br/>
-                    {/* <input placeholder="Address"/> */}
-                    <br/>
-                    {/* <button onClick={this.handleClick}>Add Location!</button> */}
-                    <div className="submit">
+                {/* <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/> */}
+
+                {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
+                <br />
+                <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times" value={this.state.location.time} />
+                <br />
+                {/* <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website" value={this.state.location.web}/> */}
+                <br />
+                <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" value={this.state.location.detail} rows="4" cols="70" />
+                <br />
+                {/* <input placeholder="Address"/> */}
+                <br />
+                {/* <button onClick={this.handleClick}>Add Location!</button> */}
+                <div className="submit">
                     <a onClick={this.handleClick} className="waves-effect waves-light btn" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
-                    </div>
-                    <br/>
-                    {/* <p>{this.state.location.name}</p>
+                </div>
+                <TextField 
+                    id="outlined-multiline-static"
+                    label="Comments"
+                    multiline
+                    fullWidth
+                    rows="4"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <br />
+                {/* <p>{this.state.location.name}</p>
                     <p>{this.state.location.time}</p>
                     <p>{this.state.location.URL}</p>
                     <p>{this.state.location.detail}</p>
                     <p>{this.state.location.lat}</p>
                     <p>{this.state.location.lng}</p> */}
-                    
-                </div>
+
+            </div>
 
         );
     }
