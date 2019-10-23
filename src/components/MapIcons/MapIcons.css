@@ -1,7 +1,10 @@
-p {
-    color: red;
-}
 .bubbles {
-    color: red;
+    color: black;
     text-align: center;
+    font-weight: bold;
+
+}
+h6 {
+    font-weight: bold;
+    text-decoration: underline;
 }

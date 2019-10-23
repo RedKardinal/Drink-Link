@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './MapIcons.css'
+import Pint from '../Media/vectoraz.svg'
 
 import {
     Marker,
@@ -40,13 +41,13 @@ class MapIcons extends Component {
                     onClick={() =>
                         this.window()
                     }
-
+                    icon={Pint}
                 />
                 ) : ( null )
                 }
                             
                             {this.state.window ?
-                    <InfoWindow key={this.props.location.id}
+                    <InfoWindow key={this.props.location.detail}
                         position={{
                             lat: Number(this.props.location.lat),
                             lng: Number(this.props.location.lng)
@@ -57,19 +58,19 @@ class MapIcons extends Component {
                             fillOpacity: 1.0,
                             strokeWeight: 0,
                             scale: 1.25,
-                            path: './vector.svg'
                         }}
                     >
                         <div 
                         className="bubbles"
                         style={{
                             background: `white`,
-                            // border: `1px solid #ccc`,
-                            padding: 5
+                            padding: 0,
+                            margin: 0
                         }}>
                             <h6>{this.props.location.name}</h6>
                             <p>{this.props.location.time}</p>
-                            <p><a href={this.props.location.URL}>Website</a></p>
+                            <p>{this.props.location.detail}</p>
+                            <h6><a href={this.props.location.URL}>Website</a></h6>
                             
                         </div>
                     </InfoWindow>
