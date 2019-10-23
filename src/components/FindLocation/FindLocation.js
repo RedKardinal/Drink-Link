@@ -26,45 +26,45 @@ class FindLocation extends Component {
     //     this.handleScriptLoad();
     // }
 
-    handleChange = (event, propertyName) => {
-        console.log(event.target.value);
-        this.setState({
-            coordinates: {
-                ...this.state.coordinates,
-                [propertyName]: event.target.value
-            }
-        })
-    } // end handleChange
+    // handleChange = (event, propertyName) => {
+    //     console.log(event.target.value);
+    //     this.setState({
+    //         coordinates: {
+    //             ...this.state.coordinates,
+    //             [propertyName]: event.target.value
+    //         }
+    //     })
+    // } // end handleChange
 
-    handleClick = (event) => {
-        console.log(this.state.coordinates);
-        Geocode.setLanguage("en");
-        Geocode.setRegion("us");
-        Geocode.enableDebug(true);
-        Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
-        Geocode.fromAddress(JSON.stringify(this.state.coordinates)).then(
-            response => {
-                const { lat, lng } = response.results[0].geometry.location;
-                console.log(lat, lng);
-                console.log(this.state.coordinates);
+    // handleClick = (event) => {
+    //     console.log(this.state.coordinates);
+    //     Geocode.setLanguage("en");
+    //     Geocode.setRegion("us");
+    //     Geocode.enableDebug(true);
+    //     Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
+    //     Geocode.fromAddress(JSON.stringify(this.state.coordinates)).then(
+    //         response => {
+    //             const { lat, lng } = response.results[0].geometry.location;
+    //             console.log(lat, lng);
+    //             console.log(this.state.coordinates);
 
-            },
-            error => {
-                console.log(error);
-            }
-        )
-        this.setState({
-            coordinates: {
-                address: '',
-                city: '',
-                state: '',
-                zip: '',
-                apt: 1,
-            }
+    //         },
+    //         error => {
+    //             console.log(error);
+    //         }
+    //     )
+    //     this.setState({
+    //         coordinates: {
+    //             address: '',
+    //             city: '',
+    //             state: '',
+    //             zip: '',
+    //             apt: 1,
+    //         }
 
-        });
-        console.log(this.state.coordinates);
-    }
+    //     });
+    //     console.log(this.state.coordinates);
+    // }
 
 
     // handleScriptLoad = () => {
@@ -111,7 +111,7 @@ class FindLocation extends Component {
                 <br />
                 <br />
                 <div className="testAutoSearch" >
-                    <input placeholder="FIND THIS PLACE!" id="findPlace" type="text"></input>
+                    {/* <input placeholder="FIND THIS PLACE!" id="findPlace" type="text"></input> */}
                 </div >
                 <div>
                     <br/>

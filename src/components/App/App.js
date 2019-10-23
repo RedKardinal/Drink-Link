@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux';
 // ---- Import Script for Google Autofill ---- //
-import Script from 'react-load-script';
+// import Script from 'react-load-script';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
 import FindLocation from '../FindLocation/FindLocation'
@@ -34,12 +34,12 @@ class App extends Component {
 
   // let googlePlaces loads the scripts I need to use the autofill...
   render() {
-    let googlePlaces = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`
+    // let googlePlaces = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`
     return (
       <Router>
         <div>
+        {/* <Script url={googlePlaces}/> */}
           <Nav />
-          <Script url={googlePlaces}/>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -65,6 +65,13 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
+            />
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/Map"
+              component={Map}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
@@ -107,13 +114,6 @@ class App extends Component {
               exact
               path="/ItemLocationEdit/:id"
               component={ItemLocationEdit}
-            />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
-            <ProtectedRoute
-              exact
-              path="/Map"
-              component={Map}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

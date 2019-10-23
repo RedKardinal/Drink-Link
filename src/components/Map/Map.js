@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import './Map.css'
 import MapIcons from '../MapIcons/MapIcons'
 import Styles from './mapStyles'
-
-
 import {
     GoogleMap,
     LoadScript,
@@ -42,7 +40,7 @@ class Map extends Component {
                                 lat: 44.977753,
                                 lng: -93.265015,
                             }}
-                            options={{styles:mapStyles}}
+                            // options={{styles:mapStyles}}
                         >
                             {this.props.reduxStore.locationReducer.map((location) => {
                                 return(

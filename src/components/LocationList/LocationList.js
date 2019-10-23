@@ -5,10 +5,6 @@ import { HashRouter as Router } from 'react-router-dom';
 
 class LocationList extends Component {
 
-    // state = {
-    //     showApproved: true
-    // }
-
     componentDidMount() {
         this.getLocations();
     } // end componentDidMount
@@ -18,8 +14,7 @@ class LocationList extends Component {
     }
 
     render () {
-        // const {showApproved} = this.state;
-
+        
         return (
             <Router>
             <>

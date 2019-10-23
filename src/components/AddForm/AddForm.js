@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 // import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-// ---- Import Script for Google Autofill ---- //
 // ---- Import CSS ---- //
 import './AddForm.css';
 
@@ -20,9 +19,9 @@ class AddForm extends Component {
         }
     } // end state
 
-    componentDidMount = () => {
-        this.handleScriptLoad();
-    }
+    // componentDidMount = () => {
+    //     this.handleScriptLoad();
+    // }
 
     // handleChanges for the inputs
     handleChange = (event, propertyName) => {
@@ -35,34 +34,34 @@ class AddForm extends Component {
         })
     } // end handleChange
 
-    handleScriptLoad = () => {
-        //define google as the global google brought in when script loads and google API is hit
-        const google = window.google;
-        //set search options as defined by google
-        let options = {
-            types: ['establishment'],
-            fields: ['name', 'geometry', 'website']
-        }
-        // Get the HTML input element on which the autocomplete search box attaches
-        let input = document.getElementById('findPlace');
-        //create the autocomplete object - Google's magic
-        this.autocomplete = new google.maps.places.Autocomplete(input, options);
-        //attach a listener to fire off a new function when place changes(user selects place)
-        this.autocomplete.addListener('place_changed', this.placeChangeHandler);
-    }
-    placeChangeHandler = () => {
-        //get data on the place google search identified
-        let googleStuff = this.autocomplete.getPlace();
-        console.log(googleStuff);
-        this.setState({
-            location: {
-            name: googleStuff.name,
-            lat: googleStuff.geometry.location.lat(),
-            lng: googleStuff.geometry.location.lng(),
-            URL: googleStuff.website,
-            }
-        })        
-    }
+    // handleScriptLoad = () => {
+    //     //define google as the global google brought in when script loads and google API is hit
+    //     const google = window.google;
+    //     //set search options as defined by google
+    //     let options = {
+    //         types: ['establishment'],
+    //         fields: ['name', 'geometry', 'website']
+    //     }
+    //     // Get the HTML input element on which the autocomplete search box attaches
+    //     let input = document.getElementById('findPlace');
+    //     //create the autocomplete object - Google's magic
+    //     this.autocomplete = new google.maps.places.Autocomplete(input, options);
+    //     //attach a listener to fire off a new function when place changes(user selects place)
+    //     this.autocomplete.addListener('place_changed', this.placeChangeHandler);
+    // }
+    // placeChangeHandler = () => {
+    //     //get data on the place google search identified
+    //     let googleStuff = this.autocomplete.getPlace();
+    //     console.log(googleStuff);
+    //     this.setState({
+    //         location: {
+    //         name: googleStuff.name,
+    //         lat: googleStuff.geometry.location.lat(),
+    //         lng: googleStuff.geometry.location.lng(),
+    //         URL: googleStuff.website,
+    //         }
+    //     })        
+    // }
 
     // handleClick = (event) => {
     //     this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
@@ -100,7 +99,7 @@ class AddForm extends Component {
                     
                     {/* <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/> */}
 
-                    <input placeholder="Add Location!" id="findPlace" type="text"></input>
+                    {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
                     <br/>
                     <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times" value={this.state.location.time}/>
                     <br/>

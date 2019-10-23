@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {
     Marker,
     InfoWindow
-
 } from '@react-google-maps/api';
 
 
