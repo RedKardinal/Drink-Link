@@ -28,11 +28,9 @@ router.post('/', (req, res) => {
         newLocation.name,
         newLocation.time,
         newLocation.detail,
-        newLocation.URL,
-        newLocation.lat,
-        newLocation.lng
+        newLocation.URL
     ]
-    const queryText = `INSERT INTO "location" ("user_id", "name", "time", "detail", "URL", "lat", "lng") VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+    const queryText = `INSERT INTO "location" ("user_id", "name", "time", "detail", "URL") VALUES ($1, $2, $3, $4, $5);`;
     pool.query(queryText, queryValues)
         .then(() => {
             res.sendStatus(201);

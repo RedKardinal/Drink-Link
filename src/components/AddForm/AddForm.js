@@ -24,17 +24,6 @@ class AddForm extends Component {
     //     this.handleScriptLoad();
     // }
 
-    // handleChanges for the inputs
-    handleChange = (event, propertyName) => {
-        console.log(event.target.value);
-        this.setState({
-            location: {
-                ...this.state.location,
-                [propertyName]: event.target.value
-            }
-        })
-    } // end handleChange
-
     // handleScriptLoad = () => {
     //     //define google as the global google brought in when script loads and google API is hit
     //     const google = window.google;
@@ -64,18 +53,15 @@ class AddForm extends Component {
     //     })        
     // }
 
-    // handleClick = (event) => {
-    //     this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
-    //     console.log(this.state.location);
-    //     this.setState({
-    //         location: {
-    //             name: '',
-    //             time: '',
-    //             web: '',
-    //             detail: '',
-    //         }
-    //     });
-    // }
+    handleChange = (event, propertyName) => {
+        console.log(event.target.value);
+        this.setState({
+            location: {
+                ...this.state.location,
+                [propertyName]: event.target.value
+            }
+        })
+    } // end handleChange
 
     handleClick = (event) => {
         this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
@@ -95,41 +81,80 @@ class AddForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="textLocation">
                 <h3>Add a Location</h3>
-
-                {/* <input onChange={(event) => { this.handleChange(event, 'name') }} placeholder="Name" value={this.state.location.name}/> */}
-
-                {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
                 <br />
-                <input onChange={(event) => { this.handleChange(event, 'time') }} placeholder="Happy Hour Times" value={this.state.location.time} />
-                <br />
-                {/* <input onChange={(event) => { this.handleChange(event, 'web') }} placeholder="Website" value={this.state.location.web}/> */}
-                <br />
-                <textarea onChange={(event) => { this.handleChange(event, 'detail') }} placeholder="Details" value={this.state.location.detail} rows="4" cols="70" />
-                <br />
-                {/* <input placeholder="Address"/> */}
-                <br />
-                {/* <button onClick={this.handleClick}>Add Location!</button> */}
-                <div className="submit">
-                    <a onClick={this.handleClick} className="waves-effect waves-light btn" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
-                </div>
                 <TextField 
+                    onChange={(event) => { this.handleChange(event, 'name') }}
+                    value={this.state.location.name}
                     id="outlined-multiline-static"
-                    label="Comments"
+                    label="Location Name"
+                    placeholder="e.g. Prime Bar"
                     multiline
                     fullWidth
-                    rows="4"
+                    rows="1"
                     margin="normal"
                     variant="outlined"
                 />
                 <br />
-                {/* <p>{this.state.location.name}</p>
-                    <p>{this.state.location.time}</p>
-                    <p>{this.state.location.URL}</p>
-                    <p>{this.state.location.detail}</p>
-                    <p>{this.state.location.lat}</p>
-                    <p>{this.state.location.lng}</p> */}
+                <TextField 
+                    onChange={(event) => { this.handleChange(event, 'time') }}
+                    value={this.state.location.time}
+                    id="outlined-multiline-static"
+                    label="Happy Hour Times"
+                    placeholder="e.g. 4:00pm-6:00pm"
+                    multiline
+                    fullWidth
+                    rows="1"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <br />
+                <TextField 
+                    onChange={(event) => { this.handleChange(event, 'detail') }}
+                    value={this.state.location.detail}
+                    id="outlined-multiline-static"
+                    label="Days of the week"
+                    placeholder="e.g. Monday-Friday"
+                    multiline
+                    fullWidth
+                    rows="1"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <br />
+                <TextField 
+                    onChange={(event) => { this.handleChange(event, 'URL') }}
+                    value={this.state.location.URL}
+                    id="outlined-multiline-static"
+                    label="Website"
+                    placeholder="e.g. www.barName.com"
+                    multiline
+                    fullWidth
+                    rows="1"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <br />
+                <TextField 
+                    // onChange={(event) => { this.handleChange(event, 'detail') }}
+                    // value={this.state.location.detail}
+                    id="outlined-multiline-static"
+                    label="Address"
+                    placeholder="e.g. 301 S 4th Ave, Minneapolis, MN 55415"
+                    multiline
+                    fullWidth
+                    rows="1"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <br />
+                <br />
+                <div className="submit">
+                    <a onClick={this.handleClick} className="waves-effect waves-light btn-large" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
+                </div>
+
+                {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
 
             </div>
 
