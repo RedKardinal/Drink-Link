@@ -14,7 +14,8 @@ class ItemLocationEdit extends Component {
         time: ``,
         detail: ``,
         URL: ``,
-
+        lat: ``,
+        lng: ``
     };
     
     componentDidMount() {
@@ -33,7 +34,9 @@ class ItemLocationEdit extends Component {
                 name: element.name,
                 time: element.time,
                 detail: element.detail,
-                URL: element.URL
+                URL: element.URL,
+                lat: element.lat,
+                lng: element.lng
         });
     })
     }
@@ -59,14 +62,15 @@ class ItemLocationEdit extends Component {
                     return (
                     <ul key={bar.id}>
                         <h5>Location details</h5>
+                        <p>User Submitted: {bar.user_id}</p>
                         <input onChange={(event) => this.handleChange('name', event)} value={this.state.name}></input>
                         <input onChange={(event) => this.handleChange('time', event)} value={this.state.time} ></input>
                         <input onChange={(event) => this.handleChange('detail', event)} value={this.state.detail}></input>
                         <p>Webiste: <a href={bar.URL}>{bar.URL}</a></p>
                         <input onChange={(event) => this.handleChange('URL', event)} value={this.state.URL}></input>
                         <h5>Location</h5>
-                        <input placeholder={bar.lat}></input>
-                        <input placeholder={bar.lng}></input>
+                        <input onChange={(event) => this.handleChange('lat', event)} value={this.state.lat}></input>
+                        <input onChange={(event) => this.handleChange('lng', event)} value={this.state.lng}></input>
                         <br/>
                         <div className="submit">
                         <a onClick={()=>this.handleEdit(bar.id)} className="waves-effect waves-light btn" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>

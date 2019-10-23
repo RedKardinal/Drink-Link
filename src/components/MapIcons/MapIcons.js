@@ -30,6 +30,8 @@ class MapIcons extends Component {
     render() {
         return (
             <div>
+                
+                { this.props.location.approve === true ? (
                 <Marker key={this.props.location.id}
                     position={{
                         lat: Number(this.props.location.lat),
@@ -40,8 +42,8 @@ class MapIcons extends Component {
                     }
 
                 />
-                )
-                            })}
+                ) : ( null )
+                }
                             
                             {this.state.window ?
                     <InfoWindow key={this.props.location.id}
