@@ -1,7 +1,8 @@
 // ---- Import Redux, Routers, & React ---- //
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+// import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+// ---- Import Script for Google Autofill ---- //
 // ---- Import CSS ---- //
 import './AddForm.css';
 
@@ -94,7 +95,6 @@ class AddForm extends Component {
 
     render() {
         return (
-
                 <div>
                     <h3>Add a Location</h3>
                     
@@ -115,12 +115,12 @@ class AddForm extends Component {
                     <a onClick={this.handleClick} className="waves-effect waves-light btn" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
                     </div>
                     <br/>
-                    <p>{this.state.location.name}</p>
+                    {/* <p>{this.state.location.name}</p>
                     <p>{this.state.location.time}</p>
                     <p>{this.state.location.URL}</p>
                     <p>{this.state.location.detail}</p>
                     <p>{this.state.location.lat}</p>
-                    <p>{this.state.location.lng}</p>
+                    <p>{this.state.location.lng}</p> */}
                     
                 </div>
 

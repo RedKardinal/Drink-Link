@@ -65,7 +65,8 @@ class MapIcons extends Component {
                         }}>
                             <h6>{this.props.location.name}</h6>
                             <p>{this.props.location.time}</p>
-                            <p>{this.props.location.URL}</p>
+                            <p><a href={this.props.location.URL}>Website</a></p>
+                            
                         </div>
                     </InfoWindow>
                     :
