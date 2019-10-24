@@ -19,8 +19,9 @@ class UserEdit extends Component {
     render () {
         return (
             <div>
+            <h5>Moderate Users</h5>
             <table className="striped centered highlight">
-            <thead>
+            <thead className="thead">
                 <tr>
                 <th>User Id</th>
                 <th>Name</th>
@@ -31,7 +32,7 @@ class UserEdit extends Component {
                 {
                     this.props.reduxStore.allUserReducer.map(user => 
                         <tr key={user.id}>
-                        <td>{user.id}</td>
+                        <td className="boldName">{user.id}</td>
                         <td>{user.username}</td>
                         <td><a onClick={()=>this.handleDelete(user.id)} className="btn-floating btn-medium waves-effect waves-light red" href="#UserEdit"><i className="material-icons right">clear</i></a></td>
                     </tr> 

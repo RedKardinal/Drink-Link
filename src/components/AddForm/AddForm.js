@@ -4,7 +4,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // ---- Import CSS ---- //
 import './AddForm.css';
+// ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
+import { InputAdornment } from '@material-ui/core';
 
 class AddForm extends Component {
 
@@ -87,6 +89,7 @@ class AddForm extends Component {
                 <TextField 
                     onChange={(event) => { this.handleChange(event, 'name') }}
                     value={this.state.location.name}
+                    InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">local_bar</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Location Name"
                     placeholder="e.g. Prime Bar"
@@ -100,6 +103,7 @@ class AddForm extends Component {
                 <TextField 
                     onChange={(event) => { this.handleChange(event, 'time') }}
                     value={this.state.location.time}
+                    InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">access_time</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Happy Hour Times"
                     placeholder="e.g. 4:00pm-6:00pm"
@@ -113,6 +117,7 @@ class AddForm extends Component {
                 <TextField 
                     onChange={(event) => { this.handleChange(event, 'detail') }}
                     value={this.state.location.detail}
+                    InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">today</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Days of the week"
                     placeholder="e.g. Monday-Friday"
@@ -126,6 +131,7 @@ class AddForm extends Component {
                 <TextField 
                     onChange={(event) => { this.handleChange(event, 'URL') }}
                     value={this.state.location.URL}
+                    InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">web</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Website"
                     placeholder="e.g. www.barName.com"
@@ -137,8 +143,9 @@ class AddForm extends Component {
                 />
                 <br />
                 <TextField 
-                    // onChange={(event) => { this.handleChange(event, 'detail') }}
-                    // value={this.state.location.detail}
+                    // onChange={(event) => { this.handleChange(event, 'address') }}
+                    // value={this.state.location.address}
+                    InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">location_city</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Address"
                     placeholder="e.g. 301 S 4th Ave, Minneapolis, MN 55415"

@@ -28,10 +28,10 @@ class LocationEdit extends Component {
         return (
             <Router>
             <>
-            <h2>Location List</h2>
+            <h5>Edit Locations</h5>
             <table className="striped">
             <tbody>
-                <tr>
+                <tr className="thead">
                 <th>Name</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -39,9 +39,9 @@ class LocationEdit extends Component {
                 {this.props.reduxStore.locationReducer.map((bar) => {
                     return (
                     <tr key={bar.id}>
-                        <td>{bar.name}</td>
+                        <td className="boldName">{bar.name}</td>
                         <td><a onClick={()=>this.handleEdit(bar.id)} className="btn-floating btn-medium waves-effect waves-light" ><i className="material-icons right">edit</i></a></td>
-                        <td><a onClick={()=>this.handleDelete(bar.id)} className="btn-floating btn-medium waves-effect waves-light red" href="#LocationEdit"><i className="material-icons right">clear</i></a></td>
+                        <td className="padLe"><a onClick={()=>this.handleDelete(bar.id)} className="btn-floating btn-medium waves-effect waves-light red" href="#LocationEdit"><i className="material-icons right">clear</i></a></td>
                     </tr>
                     )
                 })}

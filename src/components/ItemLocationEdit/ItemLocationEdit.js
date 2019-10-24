@@ -2,9 +2,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { HashRouter as Router } from 'react-router-dom';
 // ---- Import CSS ---- //
 import './ItemLocationEdit.css'
+// ---- Import Material UI --- //
+import TextField from '@material-ui/core/TextField';
+import { InputAdornment } from '@material-ui/core';
 
 class ItemLocationEdit extends Component {
 
@@ -17,7 +19,7 @@ class ItemLocationEdit extends Component {
         lat: ``,
         lng: ``
     };
-    
+
     componentDidMount() {
         console.log(this.props.match.params);
         this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params.id });
@@ -25,7 +27,8 @@ class ItemLocationEdit extends Component {
 
     componentDidUpdate(previousProps) {
         if (this.props.reduxStore.locationIdReducer !== previousProps.reduxStore.locationIdReducer) {
-        this.loadFields(); }
+            this.loadFields();
+        }
     }
 
     loadFields = () => {
@@ -37,10 +40,10 @@ class ItemLocationEdit extends Component {
                 URL: element.URL,
                 lat: element.lat,
                 lng: element.lng
-        });
-    })
+            });
+        })
     }
-    
+
     handleChange = (propertyName, event) => {
         this.setState({
             ...this.state,
@@ -55,27 +58,105 @@ class ItemLocationEdit extends Component {
     }
 
     render() {
-        return(
-            <div>
-                <h4>Edit Business and Location</h4>
+        return (
+            <div className="textLocation">
+                <h5>Edit Business and Location</h5>
                 {this.props.reduxStore.locationIdReducer.map((bar) => {
                     return (
-                    <ul key={bar.id}>
-                        <h5>Location details</h5>
-                        <p>User Submitted: {bar.user_id}</p>
-                        <input onChange={(event) => this.handleChange('name', event)} value={this.state.name}></input>
-                        <input onChange={(event) => this.handleChange('time', event)} value={this.state.time} ></input>
-                        <input onChange={(event) => this.handleChange('detail', event)} value={this.state.detail}></input>
-                        <p>Webiste: <a href={bar.URL}>{bar.URL}</a></p>
-                        <input onChange={(event) => this.handleChange('URL', event)} value={this.state.URL}></input>
-                        <h5>Location</h5>
-                        <input onChange={(event) => this.handleChange('lat', event)} value={this.state.lat}></input>
-                        <input onChange={(event) => this.handleChange('lng', event)} value={this.state.lng}></input>
-                        <br/>
-                        <div className="submit">
-                        <a onClick={()=>this.handleEdit(bar.id)} className="waves-effect waves-light btn" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>
-                        </div>
-                    </ul>
+                        <ul key={bar.id}>
+                            <p><i className="material-icons">person_outline</i> User ID that Submitted: {bar.user_id}</p>
+                            <TextField
+                                onChange={(event) => this.handleChange('name', event)}
+                                value={this.state.name}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">local_bar</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Location Name"
+                                // placeholder="e.g. Prime Bar"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            {/* <input onChange={(event) => this.handleChange('name', event)} value={this.state.name}></input> */}
+                            <TextField
+                                onChange={(event) => this.handleChange('time', event)}
+                                value={this.state.time}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">access_time</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Happy Hour Times"
+                                placeholder="e.g. 4:00pm-6:00pm"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            {/* <input onChange={(event) => this.handleChange('time', event)} value={this.state.time} ></input> */}
+                            <TextField
+                                onChange={(event) => this.handleChange('detail', event)}
+                                value={this.state.detail}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">today</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Days of the week"
+                                placeholder="e.g. Monday-Friday"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            {/* <input onChange={(event) => this.handleChange('detail', event)} value={this.state.detail}></input> */}
+                            {/* <p>Website: <a href={bar.URL}>{bar.URL}</a></p> */}
+                            <TextField
+                                onChange={(event) => this.handleChange('URL', event)}
+                                value={this.state.URL}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">web</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Website"
+                                placeholder="e.g. www.barName.com"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            {/* <input onChange={(event) => this.handleChange('URL', event)} value={this.state.URL}></input> */}
+                            {/* <h5>Location</h5> */}
+                            <TextField
+                                // onChange={(event) => { this.handleChange(event, 'address') }}
+                                value={this.state.lat}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">category</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Latitude"
+                                placeholder="e.g. 301 S 4th Ave, Minneapolis, MN 55415"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            <TextField
+                                // onChange={(event) => { this.handleChange(event, 'address') }}
+                                value={this.state.lng}
+                                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">category</i></InputAdornment>), }}
+                                id="outlined-multiline-static"
+                                label="Latitude"
+                                placeholder="e.g. 301 S 4th Ave, Minneapolis, MN 55415"
+                                multiline
+                                fullWidth
+                                rows="1"
+                                margin="normal"
+                                variant="outlined"
+                            />
+                            {/* <input onChange={(event) => this.handleChange('lat', event)} value={this.state.lat}></input>
+                            <input onChange={(event) => this.handleChange('lng', event)} value={this.state.lng}></input> */}
+                            <br />
+                            <br />
+                            <div className="submit">
+                                <a onClick={() => this.handleEdit(bar.id)} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>
+                            </div>
+                        </ul>
                     )
                 })}
             </div>

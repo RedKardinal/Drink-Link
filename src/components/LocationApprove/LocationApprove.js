@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+// --- Import CSS ---- //
+import './LocationApprove.css'
 
 class LocationApprove extends Component {
 
@@ -18,9 +20,9 @@ class LocationApprove extends Component {
     render () {
         return (
             <>
-            <h2>Location List</h2>
+            <h5>Approve Locations</h5>
             <table className="striped center">
-            <thead>
+            <thead className="theadAp">
                 <tr>
                 <th>Name</th>
                 <th>Times</th>
@@ -32,17 +34,17 @@ class LocationApprove extends Component {
                 {
                     this.props.reduxStore.locationReducer.map(bar => bar.approve === true ? (
                         <tr key={bar.id}>
-                        <td>{bar.name}</td>
+                        <td className="boldName">{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect" href="#LocationApprove"><i className="material-icons right">check</i></a></td>
+                        <td className="padLe"><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-medium waves-effect green" href="#LocationApprove"><i className="material-icons right">check</i></a></td>
                     </tr> 
                     ) : (
                         <tr key={bar.id}>
-                        <td>{bar.name}</td>
+                        <td className="boldName">{bar.name}</td>
                         <td>{bar.time}</td>
                         <td><a href={bar.URL}>Web Link</a></td>
-                        <td><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-large waves-effect waves-light red" href="#LocationApprove"><i className="material-icons right">clear</i>Not Approved</a></td>
+                        <td className="padLe"><a onClick={()=>this.handleClick(bar.id)} className="btn-floating btn-medium waves-effect waves-light red" href="#LocationApprove"><i className="material-icons right">clear</i>Not Approved</a></td>
                     </tr>    
                     )
                 )}
