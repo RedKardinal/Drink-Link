@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 // import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+// ---- Import Google Geocode ---- //
+import Geocode from "react-geocode"
 // ---- Import CSS ---- //
 import './AddForm.css';
 // ---- Import Material UI --- //
@@ -17,8 +19,11 @@ class AddForm extends Component {
             time: '',
             URL: '',
             detail: '',
-            lat: '',
-            lng: ''
+            lat: 0,
+            lng: 0
+        },
+        geoCode: {
+            coordinates: '',
         }
     } // end state
 
@@ -28,25 +33,57 @@ class AddForm extends Component {
             location: {
                 ...this.state.location,
                 [propertyName]: event.target.value
+            },
+            geoCode: {
+                ...this.state.geoCode,
+                [propertyName]: event.target.value
             }
         })
     } // end handleChange
 
+    // Handles finding Latitude and Longitude of address provided for Map. 
+    // Then adding the lat/lng to state.location then POSTing to server.
     handleClick = (event) => {
-        this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
-        console.log(this.state.location);
-        this.setState({
-            location: {
-                name: '',
-                time: '',
-                URL: '',
-                detail: '',
-                lat: '',
-                lng: ''
+        console.log(this.state.coordinates);
+        Geocode.setLanguage("en");
+        Geocode.setRegion("us");
+        Geocode.enableDebug(true);
+        Geocode.setApiKey(`${process.env.REACT_APP_GOOGLE_KEY}`);
+        Geocode.fromAddress(JSON.stringify(this.state.geoCode.coordinates)).then(
+            response => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log(lat, lng);
+                this.setState({
+                    location: {
+                        ...this.state.location,
+                        lat: lat,
+                        lng: lng
+                    }
+                })
+                this.props.dispatch({ type: 'ADD_LOCATION', payload: this.state.location })
+                console.log(this.state.location);
+                this.setState({
+                    location: {
+                        name: '',
+                        time: '',
+                        URL: '',
+                        detail: '',
+                        lat: '',
+                        lng: ''
+                    }
+                });
+                console.log(this.state.location);
+            },
+            error => {
+                console.log(error);
             }
+        )
+        this.setState({
+            coordinates: '',
         });
+        console.log(this.state.location);      
+        console.log(this.state.coordinates);     
     }
-
 
     render() {
         return (
@@ -110,8 +147,8 @@ class AddForm extends Component {
                 />
                 <br />
                 <TextField 
-                    // onChange={(event) => { this.handleChange(event, 'address') }}
-                    // value={this.state.location.address}
+                    onChange={(event) => { this.handleChange(event, 'coordinates') }}
+                    value={this.state.geoCode.coordinates}
                     InputProps={{startAdornment: (<InputAdornment position="start"><i className="material-icons">location_city</i></InputAdornment>),}}
                     id="outlined-multiline-static"
                     label="Address"
@@ -130,6 +167,13 @@ class AddForm extends Component {
 
                 {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
                 <br />
+                <p>{this.state.location.name}</p>
+                <p>{this.state.location.time}</p>
+                <p>{this.state.location.detail}</p>
+                <p>{this.state.location.URL}</p>
+
+                <p>{this.state.location.lat}</p>
+                <p>{this.state.location.lng}</p>
                 <br />
                 <br />
                 <br />
