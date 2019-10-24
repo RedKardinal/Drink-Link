@@ -15,8 +15,8 @@ class FindLocation extends Component {
             apt: 1,
         },
         testLocation: {
-            laty: '',
-            lngy: '',
+            laty: 0,
+            lngy: 0,
         },
         autoFill: {
             name: '',
@@ -51,18 +51,19 @@ class FindLocation extends Component {
             response => {
                 const { lat, lng } = response.results[0].geometry.location;
                 console.log(lat, lng);
-                console.log(this.state.coordinates);
                 this.setState({
                     testLocation: {
                         laty: lat,
                         lngy: lng
                     }
                 })
+                console.log(this.state.coordinates);
             },
             error => {
                 console.log(error);
             }
         )
+        console.log(this.state.coordinates);
         this.setState({
             coordinates: {
                 address: '',
@@ -71,7 +72,6 @@ class FindLocation extends Component {
                 zip: '',
                 apt: 1,
             }
-
         });
         console.log(this.state.coordinates);
         console.log(this.state.testLocation);
@@ -128,8 +128,8 @@ class FindLocation extends Component {
                 <div>
                     <br/>
                     <p>{this.state.autoFill.name}</p>
-                    <p>{this.state.autoFill.lat}</p>
-                    <p>{this.state.autoFill.lng}</p>
+                    <p>{this.state.testLocation.laty}</p>
+                    <p>{this.state.testLocation.lngy}</p>
                     <p>{this.state.autoFill.web}</p>
 
                 </div>
