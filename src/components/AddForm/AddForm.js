@@ -22,39 +22,6 @@ class AddForm extends Component {
         }
     } // end state
 
-    // componentDidMount = () => {
-    //     this.handleScriptLoad();
-    // }
-
-    // handleScriptLoad = () => {
-    //     //define google as the global google brought in when script loads and google API is hit
-    //     const google = window.google;
-    //     //set search options as defined by google
-    //     let options = {
-    //         types: ['establishment'],
-    //         fields: ['name', 'geometry', 'website']
-    //     }
-    //     // Get the HTML input element on which the autocomplete search box attaches
-    //     let input = document.getElementById('findPlace');
-    //     //create the autocomplete object - Google's magic
-    //     this.autocomplete = new google.maps.places.Autocomplete(input, options);
-    //     //attach a listener to fire off a new function when place changes(user selects place)
-    //     this.autocomplete.addListener('place_changed', this.placeChangeHandler);
-    // }
-    // placeChangeHandler = () => {
-    //     //get data on the place google search identified
-    //     let googleStuff = this.autocomplete.getPlace();
-    //     console.log(googleStuff);
-    //     this.setState({
-    //         location: {
-    //         name: googleStuff.name,
-    //         lat: googleStuff.geometry.location.lat(),
-    //         lng: googleStuff.geometry.location.lng(),
-    //         URL: googleStuff.website,
-    //         }
-    //     })        
-    // }
-
     handleChange = (event, propertyName) => {
         console.log(event.target.value);
         this.setState({
@@ -162,7 +129,11 @@ class AddForm extends Component {
                 </div>
 
                 {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
-
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
 
         );

@@ -7,8 +7,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
-// ---- Import Script for Google Autofill ---- //
-// import Script from 'react-load-script';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
 import FindLocation from '../FindLocation/FindLocation'
@@ -34,11 +32,9 @@ class App extends Component {
 
   // let googlePlaces loads the scripts I need to use the autofill...
   render() {
-    // let googlePlaces = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&libraries=places`
     return (
       <Router>
         <div>
-        {/* <Script url={googlePlaces}/> */}
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -53,70 +49,55 @@ class App extends Component {
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
-            Even though it seems like they are different pages, the user is always on localhost:3000/home */}
+            Even though it seems like they are different pages, the user is always on localhost:3000/home 
+            All users will be able to view the following routes upon registration. */}
             <ProtectedRoute
               exact
               path="/home"
               component={UserPage}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
-            <ProtectedRoute
-              exact
-              path="/info"
-              component={InfoPage}
-            />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/Map"
               component={Map}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/AddForm"
               component={AddForm}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/LocationList"
               component={LocationList}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/info"
+              component={InfoPage}
+            />
+            {/* These are routes that only the admin will see. Backend protection is provided as well */}
             <ProtectedRoute
               exact
               path="/LocationApprove"
               component={LocationApprove}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/LocationEdit"
               component={LocationEdit}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
-            <ProtectedRoute
-              exact
-              path="/UserEdit"
-              component={UserEdit}
-            />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/ItemLocationEdit/:id"
               component={ItemLocationEdit}
             />
-            {/* This works the same as the other protected route, except that if the user is logged in,
-            they will see the info page instead. */}
+            <ProtectedRoute
+              exact
+              path="/UserEdit"
+              component={UserEdit}
+            />
+            {/* Find Locations is a test component for Google API feature within the app. There is no nav link to it. */}
             <ProtectedRoute
               exact
               path="/FindLocation"
