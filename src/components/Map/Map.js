@@ -31,7 +31,7 @@ class Map extends Component {
                         <GoogleMap
                             className="example-map"
                             mapContainerStyle={{
-                                height: "92vh",
+                                height: "95vh",
                                 width: "auto"
                             }}
                             zoom={15}

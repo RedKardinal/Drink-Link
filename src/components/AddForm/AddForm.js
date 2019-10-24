@@ -167,13 +167,6 @@ class AddForm extends Component {
 
                 {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
                 <br />
-                <p>{this.state.location.name}</p>
-                <p>{this.state.location.time}</p>
-                <p>{this.state.location.detail}</p>
-                <p>{this.state.location.URL}</p>
-
-                <p>{this.state.location.lat}</p>
-                <p>{this.state.location.lng}</p>
                 <br />
                 <br />
                 <br />

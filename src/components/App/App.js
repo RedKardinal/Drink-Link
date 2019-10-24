@@ -21,7 +21,6 @@ import LocationList from '../LocationList/LocationList';
 import LocationApprove from '../LocationApprove/LocationApprove';
 import LocationEdit from '../LocationEdit/LocationEdit';
 import Map from '../Map/Map';
-import SideBar from '../SideBar/SideBar';
 import UserEdit from '../UserEdit/UserEdit';
 // ---- CSS ---- //
 import './App.css';
@@ -36,11 +35,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <SideBar/> */}
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from="/" to="/Map" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route

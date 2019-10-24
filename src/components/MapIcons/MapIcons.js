@@ -65,7 +65,8 @@ class MapIcons extends Component {
                         style={{
                             background: `white`,
                             padding: 0,
-                            margin: 0
+                            margin: 0,
+                            textAlign: "left"
                         }}>
                             <h6>{this.props.location.name}</h6>
                             <p>{this.props.location.time}</p>
