@@ -134,6 +134,8 @@ class AddForm extends Component {
                 <br />
                 <br />
                 <br />
+                <br />
+                <br />
             </div>
 
         );

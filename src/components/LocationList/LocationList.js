@@ -22,7 +22,7 @@ class LocationList extends Component {
             <>
             <h5>Local Happy Hours</h5>
             <table className="striped center">
-            <thead class="thead">
+            <thead className="thead">
                 <tr>
                 <th>Name</th>
                 <th>Happy Hours</th>

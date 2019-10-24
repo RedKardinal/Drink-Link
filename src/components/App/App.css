@@ -3,22 +3,22 @@ body {
     margin: 0px;
     /* background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 60%); */
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 35%);
+    /* background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 35%); */
+    background-color: lightgray;
 
     
 }
 .alert {
-    background-color: #ff4545;
-    margin: 50px;
+    color: red;
+    margin: 0px;
 }
 
 form {
-    background-color: #dbd5d5;
     width: 80%;
     height: 400px;
     margin: 20px auto;
-    padding: 25px;
+    padding: 10px;
     border-radius: 2px;
     text-align: center;
 }
@@ -28,7 +28,7 @@ input {
     margin-bottom: 10px;
 }
 
-.log-in, .log-out, .register {
+.log-out {
   background-color: #00acb0;
   border-radius: 4px;
   color: #f8f8f8;
@@ -39,9 +39,9 @@ input {
   text-align: center;
 }
 
-.log-in:hover, .log-out:hover, .register:hover {
+/* .log-in:hover, .log-out:hover, .register:hover {
   background-color: #008183;
-}
+} */
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
@@ -53,4 +53,16 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+.log-in {
+    
+}
+.register-button {
+    padding-top: 150px;
+}
+.abitlower {
+    padding-top: 20px;
+}
+.register {
+
 }

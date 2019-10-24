@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+// ---- Import Material UI --- //
+import TextField from '@material-ui/core/TextField';
+import { InputAdornment } from '@material-ui/core';
+import LogoS from '../Media/LogoS.svg'
 
 class RegisterPage extends Component {
   state = {
@@ -41,9 +45,10 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h3>Register</h3>
+          <img src={LogoS} alt="website-logo"/>
           <div>
-            <label htmlFor="username">
+            {/* <label htmlFor="username">
               Username:
               <input
                 type="text"
@@ -51,7 +56,21 @@ class RegisterPage extends Component {
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
+            </label> */}
+            <TextField
+                onChange={this.handleInputChangeFor('username')}
+                value={this.state.username}
+                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">person</i></InputAdornment>), }}
+                id="outlined-multiline-static"
+                name="username"
+                label="Username"
+                placeholder="e.g. Joey Josephson"
+                multiline
+                fullWidth
+                rows="1"
+                margin="normal"
+                variant="outlined"
+              />
           </div>
           <div>
             <label htmlFor="password">
@@ -64,19 +83,20 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
-          <div>
+          <div className="abitlower">
+          <a className="waves-effect waves-light btn-small indigo darken" href="#AddForm"><i className="material-icons right">send</i>
             <input
-              className="register"
+              className="log-in"
               type="submit"
               name="submit"
               value="Register"
-            />
+            /></a>
           </div>
         </form>
         <center>
           <button
             type="button"
-            className="link-button"
+            className="register-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
             Login

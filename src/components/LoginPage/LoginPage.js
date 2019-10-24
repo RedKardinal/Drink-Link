@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// ---- Import Material UI --- //
+import TextField from '@material-ui/core/TextField';
+import { InputAdornment } from '@material-ui/core';
+import LogoS from '../Media/LogoS.svg'
 
 class LoginPage extends Component {
   state = {
@@ -29,31 +33,43 @@ class LoginPage extends Component {
     });
   }
 
-
-  
   render() {
     return (
       <div>
-        {this.props.errors.loginMessage && (
-          <h2
+        {/* {this.props.errors.loginMessage && (
+          <p
             className="alert"
             role="alert"
           >
             {this.props.errors.loginMessage}
-          </h2>
-        )}
+          </p>
+        )} */}
         <form onSubmit={this.login}>
-          <h1>Login</h1>
+          <h3>Drink Linkz</h3>
+          <img src={LogoS} alt="website-logo"/>
           <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
+          {this.props.errors.loginMessage && (
+          <p
+            className="alert"
+            role="alert"
+          >
+            {this.props.errors.loginMessage}
+          </p>
+        )}
+              <TextField
                 onChange={this.handleInputChangeFor('username')}
+                value={this.state.username}
+                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">person</i></InputAdornment>), }}
+                id="outlined-multiline-static"
+                name="username"
+                label="Username"
+                placeholder="e.g. Joey Josephson"
+                multiline
+                fullWidth
+                rows="1"
+                margin="normal"
+                variant="outlined"
               />
-            </label>
           </div>
           <div>
             <label htmlFor="password">
@@ -65,29 +81,45 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
+            {/* <TextField
+                onChange={this.handleInputChangeFor('password')}
+                value={this.state.password}
+                InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">vpn_key</i></InputAdornment>), }}
+                id="outlined-password-input"
+                name="password"
+                type="password"
+                label="Password"
+                autoComplete="current-password"
+                placeholder="********"
+                multiline
+                fullWidth
+                rows="1"
+                margin="normal"
+                variant="outlined"
+              /> */}
           </div>
+          <br />
           <div>
-            <input
+            <a className="waves-effect waves-light btn-small indigo darken" href="#AddForm"><i className="material-icons right">send</i>
+              <input
               className="log-in"
               type="submit"
               name="submit"
               value="Log In"
-            />
+            /></a>
           </div>
         </form>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <br />
         <center>
           <button
             type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
+            className="register-button"
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
           >
             Register
           </button>
         </center>
+        
       </div>
     );
   }
