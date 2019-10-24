@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom';
 // import { withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
-// import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
+import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
 import './Nav.css';
 import './vector.svg'
 

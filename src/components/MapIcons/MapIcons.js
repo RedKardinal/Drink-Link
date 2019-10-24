@@ -86,3 +86,5 @@ const mapStateToProps = (reduxStore) => ({
     reduxStore
 });
 export default connect(mapStateToProps)(MapIcons);
+
+// Overlay view

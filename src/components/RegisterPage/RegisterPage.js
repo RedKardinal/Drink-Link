@@ -90,6 +90,7 @@ class RegisterPage extends Component {
               type="submit"
               name="submit"
               value="Register"
+              style={{color:"white"}}
             /></a>
           </div>
         </form>

@@ -28,7 +28,7 @@ class AddForm extends Component {
     } // end state
 
     handleChange = (event, propertyName) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         this.setState({
             location: {
                 ...this.state.location,
@@ -44,7 +44,7 @@ class AddForm extends Component {
     // Handles finding Latitude and Longitude of address provided for Map. 
     // Then adding the lat/lng to state.location then POSTing to server.
     handleClick = (event) => {
-        console.log(this.state.coordinates);
+        // console.log(this.state.coordinates);
         Geocode.setLanguage("en");
         Geocode.setRegion("us");
         Geocode.enableDebug(true);
@@ -72,7 +72,7 @@ class AddForm extends Component {
                         lng: ''
                     }
                 });
-                console.log(this.state.location);
+                // console.log(this.state.location);
             },
             error => {
                 console.log(error);
@@ -81,9 +81,9 @@ class AddForm extends Component {
         this.setState({
             coordinates: '',
         });
-        console.log(this.state.location);      
-        console.log(this.state.coordinates);     
-    }
+        // console.log(this.state.location);      
+        // console.log(this.state.coordinates);     
+    } // end addForm
 
     render() {
         return (

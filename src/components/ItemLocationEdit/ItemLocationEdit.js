@@ -124,7 +124,7 @@ class ItemLocationEdit extends Component {
                             {/* <input onChange={(event) => this.handleChange('URL', event)} value={this.state.URL}></input> */}
                             {/* <h5>Location</h5> */}
                             <TextField
-                                // onChange={(event) => { this.handleChange(event, 'address') }}
+                                onChange={(event) => { this.handleChange('lat', event) }}
                                 value={this.state.lat}
                                 InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">category</i></InputAdornment>), }}
                                 id="outlined-multiline-static"
@@ -137,7 +137,7 @@ class ItemLocationEdit extends Component {
                                 variant="outlined"
                             />
                             <TextField
-                                // onChange={(event) => { this.handleChange(event, 'address') }}
+                                onChange={(event) => { this.handleChange('lng', event) }}
                                 value={this.state.lng}
                                 InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">category</i></InputAdornment>), }}
                                 id="outlined-multiline-static"

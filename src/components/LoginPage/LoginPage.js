@@ -106,6 +106,7 @@ class LoginPage extends Component {
               type="submit"
               name="submit"
               value="Log In"
+              style={{color:"white"}}
             /></a>
           </div>
         </form>

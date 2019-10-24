@@ -21,6 +21,7 @@ import LocationList from '../LocationList/LocationList';
 import LocationApprove from '../LocationApprove/LocationApprove';
 import LocationEdit from '../LocationEdit/LocationEdit';
 import Map from '../Map/Map';
+import SideBar from '../SideBar/SideBar';
 import UserEdit from '../UserEdit/UserEdit';
 // ---- CSS ---- //
 import './App.css';
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          {/* <SideBar/> */}
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

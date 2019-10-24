@@ -111,9 +111,9 @@ router.put('/', rejectUnauthenticated, (req, res) => {
         // console.log(req.params.id);
         // console.log(req, res);
         // console.log('is user authenticated?', req.isAuthenticated());
-        const queryText = `UPDATE "location" SET "name" = $1, "time" = $2, "detail" = $3, "URL" = $4 WHERE "id" = $5;`
-        console.log('req.bodyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', req.body);
-        pool.query(queryText, [req.body.name, req.body.time, req.body.detail, req.body.URL, req.body.id])
+        const queryText = `UPDATE "location" SET "name" = $1, "time" = $2, "detail" = $3, "URL" = $4, "lat" = $5, "lng" = $6 WHERE "id" = $7;`
+        console.log('req.body', req.body);
+        pool.query(queryText, [req.body.name, req.body.time, req.body.detail, req.body.URL, req.body.lat, req.body.lng, req.body.id])
             .then((results) => {
                 console.log('Location update successful', results);
                 res.sendStatus(200);
