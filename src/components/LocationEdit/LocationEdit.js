@@ -27,7 +27,7 @@ class LocationEdit extends Component {
     render () {
         return (
             <Router>
-            <>
+            <div>
             <h5>Edit Locations</h5>
             <table className="striped">
             <tbody>
@@ -47,7 +47,7 @@ class LocationEdit extends Component {
                 })}
             </tbody>
             </table>
-           </>
+           </div>
            </Router>
         )
     }

@@ -1,6 +1,6 @@
 // ---- Import Redux, Routers, & React ---- //
 import React, { Component } from 'react';
-// import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 // ---- Import Google Geocode ---- //
 import Geocode from "react-geocode"
@@ -68,8 +68,11 @@ class AddForm extends Component {
                         time: '',
                         URL: '',
                         detail: '',
-                        lat: '',
-                        lng: ''
+                        lat: 0,
+                        lng: 0
+                    },
+                    geoCode: {
+                        coordinates: '',
                     }
                 });
                 // console.log(this.state.location);
@@ -87,6 +90,7 @@ class AddForm extends Component {
 
     render() {
         return (
+            <Router>
             <div className="textLocation">
                 <h3>Add a Location</h3>
                 <br />
@@ -164,8 +168,6 @@ class AddForm extends Component {
                 <div className="submit">
                     <a onClick={this.handleClick} className="waves-effect waves-light btn-large" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
                 </div>
-
-                {/* <input placeholder="Add Location!" id="findPlace" type="text"></input> */}
                 <br />
                 <br />
                 <br />
@@ -174,7 +176,7 @@ class AddForm extends Component {
                 <br />
                 <br />
             </div>
-
+            </Router>
         );
     }
 }

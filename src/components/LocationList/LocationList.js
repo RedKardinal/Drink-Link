@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // ---- Import CSS ---- //
 import './LocationList.css'
 
@@ -18,8 +18,7 @@ class LocationList extends Component {
     render () {
         
         return (
-            <Router>
-            <>
+            <div>
             <h5>Local Happy Hours</h5>
             <table className="striped center">
             <thead className="thead">
@@ -43,8 +42,7 @@ class LocationList extends Component {
                 )}
             </tbody>
             </table>
-            </>
-            </Router>
+            </div>
         )
     }
 }
@@ -52,4 +50,4 @@ class LocationList extends Component {
 const mapStateToProps = (reduxStore) => ({
     reduxStore
 });
-export default connect(mapStateToProps)(LocationList);
+export default withRouter(connect(mapStateToProps)(LocationList));

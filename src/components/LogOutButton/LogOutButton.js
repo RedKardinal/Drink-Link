@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 
 const LogOutButton = props => (
+  <Router>
   <button
     // This button shows up in multiple locations and is styled differently
     // because it's styled differently depending on where it is used, the className
@@ -11,6 +13,7 @@ const LogOutButton = props => (
   >
     Log Out
   </button>
+  </Router>
 );
 
 // This component doesn't need 'mapStateToProps'

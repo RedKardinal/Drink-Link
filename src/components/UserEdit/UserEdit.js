@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 
 class UserEdit extends Component {
 
@@ -18,6 +19,7 @@ class UserEdit extends Component {
     
     render () {
         return (
+            <Router>
             <div>
             <h5>Moderate Users</h5>
             <table className="striped centered highlight">
@@ -40,6 +42,7 @@ class UserEdit extends Component {
             </tbody>
             </table>
             </div>
+            </Router>
         )
     }
 }

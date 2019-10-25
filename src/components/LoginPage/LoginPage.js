@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 // ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
@@ -35,6 +36,7 @@ class LoginPage extends Component {
 
   render() {
     return (
+      <Router>
       <div>
         {/* {this.props.errors.loginMessage && (
           <p
@@ -122,6 +124,7 @@ class LoginPage extends Component {
         </center>
         
       </div>
+      </Router>
     );
   }
 }

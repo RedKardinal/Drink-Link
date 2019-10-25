@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 import './Map.css'
 import MapIcons from '../MapIcons/MapIcons'
 import Styles from './mapStyles'
@@ -22,6 +23,7 @@ class Map extends Component {
     render() {
         const mapStyles = Styles
         return (
+            <Router>
             <div>
                 <div className="Map">
                     <LoadScript
@@ -49,9 +51,9 @@ class Map extends Component {
 
                         </GoogleMap>
                     </LoadScript>
-
                 </div >
             </div >
+            </Router>
         )
     }
 }

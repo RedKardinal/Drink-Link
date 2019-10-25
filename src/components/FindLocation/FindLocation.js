@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 
 // ----------------- THIS ENTIRE COMPONENT IS FOR TEST PURPOSES ONLY ----------------- //
 
+// This component is for testing purposes only and for quickly adding locations using Google
+// places API. Note that currently Google Maps API and Goolge Places API do not work together,
+// so one Places must be removed before deployment. 
+
 class FindLocation extends Component {
 
     state = {
@@ -40,6 +44,8 @@ class FindLocation extends Component {
             }
         })
     } // end handleChange
+
+    // ---- Find and Double check coordinates ---- //
 
     handleClick = (event) => {
         console.log(this.state.coordinates);
@@ -78,6 +84,7 @@ class FindLocation extends Component {
         
     }
 
+    // ---- This is Google Places API for this component. ---- //
 
     // handleScriptLoad = () => {
     //     //define google as the global google brought in when script loads and google API is hit

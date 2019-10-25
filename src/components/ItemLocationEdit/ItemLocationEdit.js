@@ -1,7 +1,7 @@
 // ---- Import Redux, Routers, & React ---- //
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter  } from 'react-router';
 // ---- Import CSS ---- //
 import './ItemLocationEdit.css'
 // ---- Import Material UI --- //

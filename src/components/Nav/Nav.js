@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { HashRouter as Router } from 'react-router-dom';
-// import { withRouter } from 'react-router-dom';
-
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
-import './Nav.css';
-import './vector.svg'
 
-// import Drawer from '@material-ui/core/Drawer';
-// import Button from '@material-ui/core/Button';
+import LogOutButton from '../LogOutButton/LogOutButton';
+// ---- Import CSS ---- //
+import './Nav.css';
+// ---- Import Materialize CSS ---- //
+import { Button, SideNav, SideNavItem, Icon, Navbar, NavItem } from 'react-materialize';
 
 
 // const Nav = (props) => (
 //   <div className="nav" nav="nav-wrapper">
 //     <Link to="/home">
-//       {/* <h2 className="nav-title">Drink Linkz</h2> */}
 //     </Link>
 //     <div className="nav-right">
 //       <Link className="nav-link" to="/home">
@@ -79,68 +75,76 @@ import './vector.svg'
 // export default connect(mapStateToProps)(Nav);
 
 
-class Nav extends Component {
+// class Nav extends Component {
+
+const Nav = (props) => (
 
 
-
-  render() {
-    return (
-      <Router>
+  // render() {
+  //   return (
         <div>
           <div className="goLeft">
           <div className="goLeft"></div>
+          {/* {props.user.id ? 'Home' : 'Login / Register'} */}
+
+          {props.user.id && (
           <SideNav trigger={<Button className="black btn-large"><i className="large material-icons">menu</i></Button>} options={{closeOnClick: true}}>
               <SideNavItem className="avatar" userView user={{
                 background: 'https://image.shutterstock.com/image-photo/selection-alcoholic-drinks-on-rustic-260nw-570169324.jpg',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsfIbM_FkH_Z8GjeW4puxbrwy_KmLqThFkCmA3zqUf_C-d6QUh',
                 name: 'Marty',
                 email: 'Drink Linkz',
-
               }} />
               
 
               <NavItem divider />
               <div className="navLeft">
               <SideNavItem href="/Map" icon="map" className="iconText">
-              {/* <Link to="/Map">Map</Link> */}The Map
+              <Link to="/Map">The Map</Link>
               </SideNavItem>
               <br/>
               <SideNavItem href="/LocationList" icon="list" className="iconText">
-              {/* <Link to="/LocationList">The List</Link> */}Happy Hour List
+              <Link to="/LocationList">Happy Hour List</Link>
               </SideNavItem>
               <br/>
               <SideNavItem href="/AddForm" icon="add_circle" className="iconText">
-              {/* <Link to="/AddForm">Add Form</Link> */}Add a Location
+              <Link to="/AddForm">Add a Location</Link>
               </SideNavItem>
               <br/>
+
+               <> 
               <SideNavItem href="/LocationApprove" icon="check_circle" className="iconText">
-              {/* <Link to="/LocationApprove">Approve Location</Link>*/}Approve Locations
+              <Link to="/LocationApprove">Approve Location</Link>
               </SideNavItem>
               <br/>
               <SideNavItem href="/LocationEdit" icon="edit" className="iconText">
-              {/* <Link to="/LocationEdit"></Link> */}Edit Locations
+              <Link to="/LocationEdit">Edit Locations</Link>
               </SideNavItem>
               <br/>
               <SideNavItem href="/UserEdit" icon="supervised_user_circle" className="iconText">
-              {/* <Link to="/UserEdit"></Link> */}Moderate Users
+              <Link to="/UserEdit">Moderate Users</Link>
               </SideNavItem>
               <br />
-              <SideNavItem className="logOutBtn" icon="double_arrow"><LogOutButton className="nav-link" /></SideNavItem>
+              </>
+              
+              {/* <SideNavItem className="logOutBtn" icon="double_arrow"><LogOutButton/></SideNavItem> */}
+
+              <Button><i className="material-icons">double_arrow</i><LogOutButton/></Button>
+
               </div>
               </SideNav>
-              
+          )} 
           </div>
         </div>
-      </Router>
 
     )
-  }
-}
+//   }
+// }
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));
 
 
 

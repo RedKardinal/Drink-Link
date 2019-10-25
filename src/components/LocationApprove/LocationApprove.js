@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 // --- Import CSS ---- //
 import './LocationApprove.css'
 
@@ -19,7 +20,7 @@ class LocationApprove extends Component {
 
     render () {
         return (
-            <>
+            <div>
             <h5>Approve Locations</h5>
             <table className="striped center">
             <thead className="theadAp">
@@ -50,7 +51,7 @@ class LocationApprove extends Component {
                 )}
             </tbody>
             </table>
-            </>
+            </div>
         )
     }
 }
@@ -59,4 +60,4 @@ const mapStateToProps = (reduxStore) => ({
     reduxStore
 });
 
-export default connect(mapStateToProps) (LocationApprove);
+export default withRouter(connect(mapStateToProps)(LocationApprove));
