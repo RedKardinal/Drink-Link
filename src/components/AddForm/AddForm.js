@@ -1,6 +1,6 @@
 // ---- Import Redux, Routers, & React ---- //
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 // ---- Import Google Geocode ---- //
 import Geocode from "react-geocode"
@@ -44,6 +44,9 @@ class AddForm extends Component {
     // Handles finding Latitude and Longitude of address provided for Map. 
     // Then adding the lat/lng to state.location then POSTing to server.
     handleClick = (event) => {
+        if (this.state.location.name = '') {
+            alert('dude!')
+        } else
         // console.log(this.state.coordinates);
         Geocode.setLanguage("en");
         Geocode.setRegion("us");
@@ -81,9 +84,6 @@ class AddForm extends Component {
                 console.log(error);
             }
         )
-        this.setState({
-            coordinates: '',
-        });
         // console.log(this.state.location);      
         // console.log(this.state.coordinates);     
     } // end addForm
