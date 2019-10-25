@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
+import swal from 'sweetalert';
 
 
 class LocationEdit extends Component {
@@ -15,7 +16,23 @@ class LocationEdit extends Component {
 
     handleDelete = (id) => {
         console.log('Delete clicked!');
-        this.props.dispatch({ type: 'DELETE_LOCATION', payload: id })
+        swal({
+            title: "Are you sure?",
+            text: "This will be permantely be deleted.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                this.props.dispatch({ type: 'DELETE_LOCATION', payload: id })
+                swal("Location deleted!", {
+                    icon: "success",
+                })
+            } else {
+                
+            }
+        })
     }
 
     handleEdit = (id) => {

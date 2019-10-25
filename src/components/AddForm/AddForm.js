@@ -9,6 +9,7 @@ import './AddForm.css';
 // ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
+import swal from 'sweetalert';
 
 class AddForm extends Component {
 
@@ -44,9 +45,6 @@ class AddForm extends Component {
     // Handles finding Latitude and Longitude of address provided for Map. 
     // Then adding the lat/lng to state.location then POSTing to server.
     handleClick = (event) => {
-        if (this.state.location.name = '') {
-            alert('dude!')
-        } else
         // console.log(this.state.coordinates);
         Geocode.setLanguage("en");
         Geocode.setRegion("us");
@@ -79,6 +77,7 @@ class AddForm extends Component {
                     }
                 });
                 // console.log(this.state.location);
+                swal("Thank you!", "Your submission will be reviewed shortly!", "success")
             },
             error => {
                 console.log(error);
@@ -171,6 +170,7 @@ class AddForm extends Component {
                 <br />
                 <br />
                 <br />
+                {this.state.location.name}
                 <br />
                 <br />
                 <br />

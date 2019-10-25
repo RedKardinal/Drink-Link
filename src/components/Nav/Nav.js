@@ -15,6 +15,11 @@ import { Button, SideNav, SideNavItem, NavItem } from 'react-materialize';
 
 // class Nav extends Component {
 
+// function logOut() {
+//   props.dispatch({ type: 'LOGOUT' })
+
+// }
+
 const Nav = (props) => (
 
 
@@ -68,7 +73,6 @@ const Nav = (props) => (
               <SideNavItem className="logOutBtn" icon="double_arrow" >
                 <Link onClick={() => props.dispatch({ type: 'LOGOUT' })}>Log Out</Link>
               </SideNavItem>
-
               </div>
               </SideNav>
           )} 

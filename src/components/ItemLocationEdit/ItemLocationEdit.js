@@ -7,6 +7,8 @@ import './ItemLocationEdit.css'
 // ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
+import swal from 'sweetalert';
+
 
 class ItemLocationEdit extends Component {
 
@@ -54,6 +56,7 @@ class ItemLocationEdit extends Component {
 
     handleEdit = () => {
         this.props.dispatch({ type: 'UPDATE_LOCATION', payload: this.state })
+        swal("Success!", "Location have been updated", "success")
         this.props.history.push("/LocationEdit")
     }
 

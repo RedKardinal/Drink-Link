@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
+import swal from 'sweetalert';
 
 class UserEdit extends Component {
 
@@ -12,9 +13,30 @@ class UserEdit extends Component {
         this.props.dispatch({ type: 'FETCH_ALL_USER' })
     }
 
+    // handleDelete = (id) => {
+    //     console.log('Delete clicked!');
+    //     this.props.dispatch({ type: 'DELETE_USER', payload: id })
+    // }
+
     handleDelete = (id) => {
         console.log('Delete clicked!');
-        this.props.dispatch({ type: 'DELETE_USER', payload: id })
+        swal({
+            title: "Are you sure?",
+            text: "This will be permantely be deleted.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                this.props.dispatch({ type: 'DELETE_USER', payload: id })
+                swal("User deleted!", {
+                    icon: "success",
+                })
+            } else {
+                
+            }
+        })
     }
     
     render () {

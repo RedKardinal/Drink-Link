@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
@@ -23,6 +24,7 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
+      this.props.history.push('/Map')
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -74,11 +76,12 @@ class LoginPage extends Component {
               />
           </div>
           <div>
-            <label htmlFor="password">
+            <label htmlFor="password" icon="map">
               Password:
               <input
                 type="password"
                 name="password"
+                placeholder=""
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
@@ -136,4 +139,4 @@ const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(LoginPage);
+export default withRouter(connect(mapStateToProps)(LoginPage));
