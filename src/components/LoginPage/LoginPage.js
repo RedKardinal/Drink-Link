@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
 import LogoS from '../Media/LogoS.svg'
+import { metaProperty } from '@babel/types';
 
 class LoginPage extends Component {
   state = {
@@ -36,6 +37,20 @@ class LoginPage extends Component {
     });
   }
 
+  adminLogin = () => {
+    this.setState ({
+      username: 'Marty',
+      password: '12345678'
+    })
+  }
+
+  userLogin = () => {
+    this.setState({
+      username: 'Al Caholic',
+      password: 'alcaholic'     
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -49,8 +64,8 @@ class LoginPage extends Component {
           </p>
         )} */}
         <form onSubmit={this.login}>
-          <h3>Drink Linkz</h3>
-          <img src={LogoS} alt="website-logo"/>
+          <h3 onClick={this.userLogin}>Drink Linkz</h3>
+          <img onClick={this.adminLogin} src={LogoS} alt="website-logo"/>
           <div>
           {this.props.errors.loginMessage && (
           <p
