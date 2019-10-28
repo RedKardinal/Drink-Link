@@ -60,7 +60,7 @@ class LocationEdit extends Component {
                                 return (
                                     <tr key={bar.id}>
                                         <td className="boldName">{bar.name}</td>
-                                        <td><a onClick={() => this.handleEdit(bar.id)} className="btn-floating btn-medium waves-effect waves-light yellow darken-3" ><i className="material-icons right">edit</i></a></td>
+                                        <td><a onClick={() => this.handleEdit(bar.id)} className="btn-floating btn-medium waves-effect waves-light amber darken-1" ><i className="material-icons right">edit</i></a></td>
                                         <td className="padLe"><a onClick={() => this.handleDelete(bar.id)} className="btn-floating btn-medium waves-effect waves-light red darken-1" href="#LocationEdit"><i className="material-icons right">clear</i></a></td>
                                     </tr>
                                 )

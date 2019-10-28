@@ -12,7 +12,17 @@ const AboutPage = () => (
     <Router>
     <div>
       <p>
-        This about page is for anyone to read!
+
+
+
+
+        ----------- IF YOU ARE SEEING THIS PAGE SOMETHING HAS GONE TERRIBLY WRONG AND MARTY IS TRYING REALLY HARD NOT TO PANIC! --------------
+
+
+
+
+
+
       </p>
     </div>
     </Router>

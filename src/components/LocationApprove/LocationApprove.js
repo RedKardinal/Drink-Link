@@ -44,7 +44,7 @@ class LocationApprove extends Component {
                                     <td className="boldName">{bar.name}</td>
                                     <td>{bar.time}</td>
                                     <td><a href={bar.URL}>Web Link</a></td>
-                                    <td className="padLe"><a onClick={() => this.handleClick(bar.id)} className="btn-floating btn-medium waves-effect green" href="#LocationApprove"><i className="material-icons right">check</i></a></td>
+                                    <td className="padLe"><a onClick={() => this.handleClick(bar.id)} className="btn-floating btn-medium waves-effect green darken-1" href="#LocationApprove"><i className="material-icons right">check</i></a></td>
                                 </tr>
                             ) : (
                                     <tr key={bar.id}>

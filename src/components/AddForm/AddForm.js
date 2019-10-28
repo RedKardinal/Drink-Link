@@ -93,7 +93,7 @@ class AddForm extends Component {
     autoAddress = () => {
         this.setState({
             location: {
-                name: 'Freehouse (Northloop)',
+                name: 'FreeBhouse (Northloop)',
                 time: '8:00am-11:00am & 4:00pm-6:00pm',
                 URL: 'https://www.freehousempls.com/drink/',
                 detail: 'Monday-Friday',
@@ -184,7 +184,7 @@ class AddForm extends Component {
                     <br />
                     <br />
                     <div className="submit">
-                        <a onClick={this.handleClick} className="waves-effect waves-light btn-large" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
+                        <a onClick={this.handleClick} className="waves-effect waves-light btn-large teal darken-1" href="#AddForm"><i className="material-icons right">send</i>Submit</a>
                     </div>
                     <br />
                     <br />
