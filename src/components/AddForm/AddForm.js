@@ -93,15 +93,15 @@ class AddForm extends Component {
     autoAddress = () => {
         this.setState({
             location: {
-                name: '',
-                time: '',
-                URL: '',
-                detail: '',
+                name: 'Freehouse (Northloop)',
+                time: '8:00am-11:00am & 4:00pm-6:00pm',
+                URL: 'https://www.freehousempls.com/drink/',
+                detail: 'Monday-Friday',
                 lat: 0,
                 lng: 0
             },
             geoCode: {
-                coordinates: '',
+                coordinates: '701 N Washington Ave #101, Minneapolis, MN 55401',
             }
         })
     } // end autoAddress
