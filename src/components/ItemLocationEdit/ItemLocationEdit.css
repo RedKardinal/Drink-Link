@@ -1,5 +1,14 @@
-.submit {
+.submitAndBack {
     text-align: center;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 5px;
+}
+.gridItem1 {
+    padding-right: 10px;
+}
+.gridItem2 {
+    padding-left: 10px;
 }
 .textLocation {
     padding-left: 50px;

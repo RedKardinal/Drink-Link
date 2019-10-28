@@ -167,12 +167,15 @@ class ItemLocationEdit extends Component {
                             <input onChange={(event) => this.handleChange('lng', event)} value={this.state.lng}></input> */}
                             <br />
                             <br />
-                            <div className="submit">
+                            <div className="submitAndBack">
+                                <div className="gridItem1">
+                                <a onClick={this.handleBack} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons left">arrow_back_ios</i>Back</a>
+                                </div>
+                                <div className="gridItem2">
                                 <a onClick={() => this.handleEdit(bar.id)} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>
+                                </div>
                             </div>
-                            <div>
-                                <a onClick={this.handleBack} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons right">send</i>Back</a>
-                            </div>
+
                         </ul>
                     )
                 })}
