@@ -1,12 +1,12 @@
 // ---- Import Redux, Routers, & React ---- //
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
   Redirect,
   Switch,
 } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 // ---- Connect Pages to App.js ---- //
 import AboutPage from '../AboutPage/AboutPage';
 import FindLocation from '../FindLocation/FindLocation'
@@ -26,8 +26,8 @@ import UserEdit from '../UserEdit/UserEdit';
 import './App.css';
 
 class App extends Component {
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' })
   } // end componenetDidMount
 
   // let googlePlaces loads the scripts I need to use the autofill...
@@ -109,11 +109,12 @@ class App extends Component {
           </Switch>
           {/* <Footer /> */}
         </div>
-      </Router> 
-  )}
+      </Router>
+    )
+  }
 }
 
-
+// Saved for future changes
 // const mapStateToProps = state => ({
 //   user: state.user,
 // });

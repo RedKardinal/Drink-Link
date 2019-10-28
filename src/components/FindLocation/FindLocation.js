@@ -81,7 +81,7 @@ class FindLocation extends Component {
         });
         console.log(this.state.coordinates);
         console.log(this.state.testLocation);
-        
+
     }
 
     // ---- This is Google Places API for this component. ---- //
@@ -133,7 +133,7 @@ class FindLocation extends Component {
                     {/* <input placeholder="FIND THIS PLACE!" id="findPlace" type="text"></input> */}
                 </div >
                 <div>
-                    <br/>
+                    <br />
                     <p>{this.state.autoFill.name}</p>
                     <p>{this.state.testLocation.laty}</p>
                     <p>{this.state.testLocation.lngy}</p>

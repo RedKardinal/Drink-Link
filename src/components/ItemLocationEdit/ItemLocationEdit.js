@@ -1,7 +1,7 @@
 // ---- Import Redux, Routers, & React ---- //
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter  } from 'react-router';
+import { withRouter } from 'react-router';
 // ---- Import CSS ---- //
 import './ItemLocationEdit.css'
 // ---- Import Material UI --- //
@@ -9,7 +9,8 @@ import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
 import swal from 'sweetalert';
 
-
+// This page handles changes for single location that are selected.
+// Users can update information on location to be PUT in database.
 class ItemLocationEdit extends Component {
 
     state = {
@@ -22,17 +23,13 @@ class ItemLocationEdit extends Component {
         lng: ``
     };
 
+    // Fetches single location by ID.
     componentDidMount() {
         console.log(this.props.match.params);
         this.props.dispatch({ type: 'FETCH_LOCATION_ID', payload: this.props.match.params.id });
-    }
+    } // end componentDidMount
 
-    componentDidUpdate(previousProps) {
-        if (this.props.reduxStore.locationIdReducer !== previousProps.reduxStore.locationIdReducer) {
-            this.loadFields();
-        }
-    }
-
+    // Loads information about location into textfields. If no edits, nothing is changed in DB.
     loadFields = () => {
         this.props.reduxStore.locationIdReducer.forEach(element => {
             this.setState({
@@ -44,8 +41,16 @@ class ItemLocationEdit extends Component {
                 lng: element.lng
             });
         })
-    }
+    } // end loadFields
 
+    // If no edits, nothing is changed in DB.
+    componentDidUpdate(previousProps) {
+        if (this.props.reduxStore.locationIdReducer !== previousProps.reduxStore.locationIdReducer) {
+            this.loadFields();
+        }
+    } // end componentDidUpdate
+
+    // Handles change in textfields.
     handleChange = (propertyName, event) => {
         this.setState({
             ...this.state,
@@ -54,11 +59,17 @@ class ItemLocationEdit extends Component {
         console.log('Edit', this.state)
     } // handles Change in input fields
 
+    // PUTs changes to database before success notification and push to preview page.
     handleEdit = () => {
         this.props.dispatch({ type: 'UPDATE_LOCATION', payload: this.state })
         swal("Success!", "Location have been updated", "success")
         this.props.history.push("/LocationEdit")
-    }
+    } // end handleEdit
+
+    // Pushes admin back to preview page.
+    handleBack = () => {
+        this.props.history.push("/LocationEdit")
+    } // end handleBack
 
     render() {
         return (
@@ -158,6 +169,9 @@ class ItemLocationEdit extends Component {
                             <br />
                             <div className="submit">
                                 <a onClick={() => this.handleEdit(bar.id)} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons right">send</i>Submit</a>
+                            </div>
+                            <div>
+                                <a onClick={this.handleBack} className="waves-effect waves-light btn-large" href="#LocationEdit"><i className="material-icons right">send</i>Back</a>
                             </div>
                         </ul>
                     )

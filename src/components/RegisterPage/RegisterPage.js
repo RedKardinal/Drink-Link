@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 // ---- Import Material UI --- //
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
 import LogoS from '../Media/LogoS.svg'
 
+// For new users to register
 class RegisterPage extends Component {
+
   state = {
     username: '',
     password: '',
   };
 
+  // Controls form for new user registration 
   registerUser = (event) => {
     event.preventDefault();
 
@@ -24,33 +27,34 @@ class RegisterPage extends Component {
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
+  // Handles input changes
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
     });
-  }
+  } // end handleInputChangeFor
 
   render() {
     return (
       <Router>
-      <div>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
-        <form onSubmit={this.registerUser}>
-          <h3>Register</h3>
-          <img src={LogoS} alt="website-logo"/>
-          <div>
-            {/* <label htmlFor="username">
+        <div>
+          {this.props.errors.registrationMessage && (
+            <h2
+              className="alert"
+              role="alert"
+            >
+              {this.props.errors.registrationMessage}
+            </h2>
+          )}
+          <form onSubmit={this.registerUser}>
+            <h3>Register</h3>
+            <img src={LogoS} alt="website-logo" />
+            <div>
+              {/* <label htmlFor="username">
               Username:
               <input
                 type="text"
@@ -59,7 +63,7 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </label> */}
-            <TextField
+              <TextField
                 onChange={this.handleInputChangeFor('username')}
                 value={this.state.username}
                 InputProps={{ startAdornment: (<InputAdornment position="start"><i className="material-icons">person</i></InputAdornment>), }}
@@ -73,39 +77,39 @@ class RegisterPage extends Component {
                 margin="normal"
                 variant="outlined"
               />
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
+            </div>
+            <div>
+              <label htmlFor="password">
+                Password:
               <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div className="abitlower">
-          <a className="waves-effect waves-light btn-small indigo darken" href="#AddForm"><i className="material-icons right">send</i>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Register"
-              style={{color:"white"}}
-            /></a>
-          </div>
-        </form>
-        <center>
-          <p
-            // type="button"
-            className="register-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
-          >
-            Login
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor('password')}
+                />
+              </label>
+            </div>
+            <div className="abitlower">
+              <a className="waves-effect waves-light btn-small indigo darken" href="#AddForm"><i className="material-icons right">send</i>
+                <input
+                  className="log-in"
+                  type="submit"
+                  name="submit"
+                  value="Register"
+                  style={{ color: "white" }}
+                /></a>
+            </div>
+          </form>
+          <center>
+            <p
+              // type="button"
+              className="register-button"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+            >
+              Login
           </p>
-        </center>
-      </div>
+          </center>
+        </div>
       </Router>
     );
   }
@@ -119,4 +123,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(RegisterPage);
-
