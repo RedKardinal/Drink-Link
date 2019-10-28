@@ -51,7 +51,7 @@ class RegisterPage extends Component {
             </h2>
           )}
           <form onSubmit={this.registerUser}>
-            <h3>Register</h3>
+            <h3>Create a new account</h3>
             <img src={LogoS} alt="website-logo" />
             <div>
               {/* <label htmlFor="username">
