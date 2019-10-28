@@ -74,19 +74,17 @@ input {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
-@font-face {
-    font-family: 'HeaderFont';
-    src: local('HeaderFont'), url(../Media/CustomFont.ttf) format('ttf');
-}
-
 h3 {
-    font-family: 'Liquor';
+    font-family: 'LiquorStore';
     font-weight: bolder;
 }
+
 @font-face {
-    font-family: 'Liquor';
+    font-family: 'LiquorStore';
     font-style: normal;
     font-weight: 300;
-    src: url(../Media/Pittsbrook.ttf)
+    src: url(../Media/LiquorStore.ttf);
+}
+.bodyCenter {
+    padding-top: 50px;
 }

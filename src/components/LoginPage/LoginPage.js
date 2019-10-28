@@ -60,7 +60,7 @@ class LoginPage extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="bodyCenter">
           {/* {this.props.errors.loginMessage && (
           <p
             className="alert"
@@ -136,7 +136,6 @@ class LoginPage extends Component {
                 /></a>
             </div>
           </form>
-          <br />
           <center>
             <p
               // type="button"

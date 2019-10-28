@@ -100,6 +100,7 @@ class RegisterPage extends Component {
                 /></a>
             </div>
           </form>
+          <br />
           <center>
             <p
               // type="button"

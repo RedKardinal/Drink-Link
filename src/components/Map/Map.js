@@ -40,8 +40,8 @@ class Map extends Component {
                                 }}
                                 zoom={15}
                                 center={{
-                                    lat: 44.977753,
-                                    lng: -93.265015,
+                                    lat: 44.9746234,
+                                    lng: -93.2685388,
                                 }}
                                 options={{ styles: mapStyles }}
                             >
