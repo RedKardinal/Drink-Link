@@ -35,12 +35,15 @@ You will need the following
 ### Application View
 
 Login Screen for users.
+
 <img src="Screenshots/ReadMElogin.png" width="50%"/>
 
 Homepage for all users with locations and information displayed.
+
 <img src="Screenshots/ReadMEmap.png" width="50%"/>
 
 Side Nav view for users. Top three option can be seen by all users and the remaining three by admin. 
+
 <img src="Screenshots/ReadMEsidebar.png" width="50%"/>
 
 ### Future Updates
