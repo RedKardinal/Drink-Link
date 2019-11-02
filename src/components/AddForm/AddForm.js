@@ -89,28 +89,11 @@ class AddForm extends Component {
         // console.log(this.state.coordinates);     
     } // end addForm
 
-    // For presentation purpsoses only.
-    autoAddress = () => {
-        this.setState({
-            location: {
-                name: 'FreeBhouse (Northloop)',
-                time: '8:00am-11:00am & 4:00pm-6:00pm',
-                URL: 'https://www.freehousempls.com/drink/',
-                detail: 'Monday-Friday',
-                lat: 0,
-                lng: 0
-            },
-            geoCode: {
-                coordinates: '701 N Washington Ave #101, Minneapolis, MN 55401',
-            }
-        })
-    } // end autoAddress
-
     render() {
         return (
             <Router>
                 <div className="textLocation">
-                    <h3 onClick={this.autoAddress}>Add a Location</h3>
+                    <h3>Add a Location</h3>
                     <br />
                     <TextField
                         onChange={(event) => { this.handleChange(event, 'name') }}

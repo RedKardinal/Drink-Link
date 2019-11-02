@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import { InputAdornment } from '@material-ui/core';
 import LogoS from '../Media/LogoS.svg'
-// import { metaProperty } from '@babel/types';
 
 // Login page for all users. 
 class LoginPage extends Component {
@@ -41,22 +40,6 @@ class LoginPage extends Component {
     });
   } // end handleInputChangeFor
 
-  // For Admin presentation purpose only
-  adminLogin = () => {
-    this.setState({
-      username: 'Marty',
-      password: '12345678'
-    })
-  }
-
-  // For Admin presentation purpose only
-  userLogin = () => {
-    this.setState({
-      username: 'Al Caholic',
-      password: 'alcaholic'
-    })
-  }
-
   render() {
     return (
       <Router>
@@ -70,8 +53,8 @@ class LoginPage extends Component {
           </p>
         )} */}
           <form onSubmit={this.login}>
-            <h3 onClick={this.userLogin}>Drink Linkz</h3>
-            <img onClick={this.adminLogin} src={LogoS} alt="website-logo" />
+            <h3>Drink Linkz</h3>
+            <img src={LogoS} alt="website-logo" />
             <div>
               {this.props.errors.loginMessage && (
                 <p
