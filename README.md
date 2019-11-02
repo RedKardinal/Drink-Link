@@ -49,7 +49,9 @@ Side Nav view for users. Top three option can be seen by all users and the remai
 ### Future Updates
 
 [ ] : Reintroduce Google Places API to find locations quicker. 
+
 [ ] : Create a search function to find locations on the map and list.
+
 [ ] : Introduce Google Geolocation finder so users can see their location.
 
 ### Thanks all!
